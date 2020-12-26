@@ -60,6 +60,7 @@
 	desc = "Can be manually filled with materials from crates."
 	icon_state = "crate_input"
 	//reagent_flags = TRANSPARENT | REFILLABLE
+	density = FALSE
 
 /obj/machinery/factory/input/Initialize(mapload, bolt)
 	. = ..()
@@ -71,6 +72,7 @@
 	desc = "A manual output for factory systems, for taking materials directly into crates."
 	icon_state = "crate_output"
 	//reagent_flags = TRANSPARENT | DRAINABLE
+	density = FALSE
 
 /obj/machinery/factory/output/Initialize(mapload, bolt)
 	. = ..()

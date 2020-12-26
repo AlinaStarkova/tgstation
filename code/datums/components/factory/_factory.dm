@@ -16,7 +16,7 @@
 	///if TRUE connects will spin with the parent object visually and codually, so you can have it work in any direction. FALSE if you want it to be static
 	var/turn_connects = TRUE
 	///The layer on which we connect. Don't add multiple. If you want multiple layer connects for some reason you can just add multiple components with different layers
-	var/ducting_layer = DUCT_LAYER_DEFAULT
+	var/ducting_layer = BELT_LAYER_DEFAULT
 
 ///turn_connects is for wheter or not we spin with the object to change our pipes
 /datum/component/factory/Initialize(start=TRUE, _turn_connects=TRUE, _ducting_layer)
