@@ -19,6 +19,7 @@ GLOBAL_LIST_EMPTY(fconveyors_by_id)
 	var/movedir			// the actual direction to move stuff in
 	var/verted = 1		// Inverts the direction the conveyor belt moves.
 	var/conveying = FALSE
+	//density = FALSE
 
 /obj/machinery/factory/conveyor/centcom_auto
 	id = "round_end_belt"

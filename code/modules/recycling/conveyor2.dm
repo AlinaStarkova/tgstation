@@ -20,6 +20,12 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 	var/verted = 1		// Inverts the direction the conveyor belt moves.
 	var/conveying = FALSE
 
+/obj/machinery/conveyor/factory
+	operating = 1
+	Initialize(mapload, newdir, newid)
+		. = ..()
+
+
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
 
