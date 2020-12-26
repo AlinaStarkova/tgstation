@@ -1081,7 +1081,8 @@ RLD
 	factory_design_types = list(
 	/obj/machinery/factory/input = 5,
 	/obj/machinery/factory/output = 5,
-	/obj/machinery/factory/rack = 20
+	/obj/machinery/factory/rack = 20,
+	/obj/machinery/factory/conveyor = 2
 	/*/obj/machinery/factory/acclimator = 10,
 	/obj/machinery/factory/bottler = 50,
 	/obj/machinery/factory/disposer = 10,
