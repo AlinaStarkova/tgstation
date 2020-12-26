@@ -30,6 +30,9 @@
 	///Reagents holder
 	var/datum/reagents/reagents = null
 
+	///Material holder
+	var/datum/material/material = null
+
 	///This atom's HUD (med/sec, etc) images. Associative list.
 	var/list/image/hud_list = null
 	///HUD images that this atom can provide.

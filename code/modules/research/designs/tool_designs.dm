@@ -42,6 +42,15 @@
 	category = list("Tool Designs")
 	departmental_flags =  DEPARTMENTAL_FLAG_ENGINEERING | DEPARTMENTAL_FLAG_CARGO
 
+/datum/design/factory_rcd
+	name = "Factory Constructor"
+	id = "factory_rcd"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 75000, /datum/material/glass = 37500, /datum/material/plastic = 1000)
+	build_path = /obj/item/construction/factory
+	category = list("Equipment")
+	departmental_flags = DEPARTMENTAL_FLAG_CARGO
+
 /datum/design/rcd_loaded
 	name = "Rapid Construction Device"
 	desc = "A tool that can construct and deconstruct walls, airlocks and floors on the fly."
