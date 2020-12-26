@@ -2004,7 +2004,6 @@
 #include "code\modules\factory\factory machines\reaction_chamber.dm"
 #include "code\modules\factory\factory machines\splitters.dm"
 #include "code\modules\factory\factory machines\synthesizer.dm"
-#include "code\modules\factory\factory machines\synthesizer.dm"
 #include "code\modules\factory\factory machines\teleporter.dm"
 #include "code\modules\fields\fields.dm"
 #include "code\modules\fields\gravity.dm"
