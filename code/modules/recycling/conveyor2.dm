@@ -22,9 +22,7 @@ GLOBAL_LIST_EMPTY(conveyors_by_id)
 
 /obj/machinery/conveyor/factory
 	operating = 1
-	Initialize(mapload, newdir, newid)
-		. = ..()
-
+	id = 90
 
 /obj/machinery/conveyor/centcom_auto
 	id = "round_end_belt"
