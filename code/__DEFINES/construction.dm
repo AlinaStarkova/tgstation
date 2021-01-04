@@ -9,8 +9,11 @@
 #define GIRDER_DISPLACED 3
 #define GIRDER_DISASSEMBLED 4
 
-//rwall construction states
+//wall construction states
 #define INTACT 0
+#define SHEETS 1
+
+//rwall construction states
 #define SUPPORT_LINES 1
 #define COVER 2
 #define CUT_COVER 3

@@ -118,7 +118,7 @@
 					S.use(2)
 					to_chat(user, "<span class='notice'>You add the plating.</span>")
 					var/turf/T = get_turf(src)
-					T.PlaceOnTop(/turf/closed/wall)
+					T.PlaceOnTop(/turf/closed/wall/sheets)
 					transfer_fingerprints_to(T)
 					qdel(src)
 				return

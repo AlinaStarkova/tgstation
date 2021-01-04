@@ -28,6 +28,8 @@
 
 	var/list/dent_decals
 
+	///Dismantled state, related to deconstruction.
+	var/d_state = INTACT
 
 /turf/closed/wall/Initialize(mapload)
 	. = ..()
@@ -51,13 +53,17 @@
 		GLOB.station_turfs -= src
 	return ..()
 
-
 /turf/closed/wall/examine(mob/user)
 	. += ..()
 	. += deconstruction_hints(user)
 
 /turf/closed/wall/proc/deconstruction_hints(mob/user)
-	return "<span class='notice'>The outer plating is <b>welded</b> firmly in place.</span>"
+	//return "<span class='notice'>The outer plating is <b>welded</b> firmly in place.</span>"
+	switch(d_state)
+		if(INTACT)
+			return "<span class='notice'>The metal sheets are <b>welded</b> firmly in place.</span>"
+		if(SHEETS)
+			return "<span class='notice'>The <i>metal sheets</i> have been cut and are <b>pried</b> into place.</span>"
 
 /turf/closed/wall/attack_tk()
 	return
@@ -77,6 +83,64 @@
 			P.roll_and_drop(src)
 
 	ScrapeAway()
+
+/turf/closed/wall/sheets
+	icon_state = "wallsheets-1"
+	d_state = SHEETS
+
+/turf/closed/wall/try_decon(obj/item/W, mob/user, turf/T)
+	//DECONSTRUCTION
+	switch(d_state)
+		if(INTACT)
+			if(W.tool_behaviour == TOOL_WELDER)
+				if(!W.tool_start_check(user, amount=0))
+					return
+				to_chat(user, "<span class='notice'>You begin slicing apart the metal sheets...</span>")
+				if(W.use_tool(src, user, 60, volume=100))
+					if(!istype(src, /turf/closed/wall) || d_state != INTACT)
+						return TRUE
+					d_state = SHEETS
+					update_icon()
+					to_chat(user, "<span class='notice'>You press firmly on the cover, dislodging it.</span>")
+				return TRUE
+
+		if(SHEETS)
+			if(W.tool_behaviour == TOOL_CROWBAR)
+				to_chat(user, "<span class='notice'>You struggle to pry out the loose metal sheets...</span>")
+				if(W.use_tool(src, user, 100, volume=100))
+					if(!istype(src, /turf/closed/wall) || d_state != SHEETS)
+						return TRUE
+					to_chat(user, "<span class='notice'>You pry out the loose metal sheets.</span>")
+					dismantle_wall()
+				return TRUE
+
+			if(W.tool_behaviour == TOOL_WELDER)
+				if(!W.tool_start_check(user, amount=0))
+					return
+				to_chat(user, "<span class='notice'>You begin welding the metal sheets together...</span>")
+				if(W.use_tool(src, user, 60, volume=100))
+					if(!istype(src, /turf/closed/wall) || d_state != SHEETS)
+						return TRUE
+					d_state = INTACT
+					update_icon()
+					to_chat(user, "<span class='notice'>The metal sheets has been welded securely to the frame.</span>")
+				return TRUE
+	return FALSE
+
+/turf/closed/wall/update_icon()
+	. = ..()
+	if(d_state != INTACT)
+		smoothing_flags = NONE
+	else
+		smoothing_flags = SMOOTH_BITMASK
+		QUEUE_SMOOTH_NEIGHBORS(src)
+		QUEUE_SMOOTH(src)
+
+/turf/closed/wall/update_icon_state()
+	if(d_state != INTACT)
+		icon_state = "wallsheets-1"
+	else
+		icon_state = "[base_icon_state]-[smoothing_junction]"
 
 /turf/closed/wall/proc/break_wall()
 	new sheet_type(src, sheet_amount)
