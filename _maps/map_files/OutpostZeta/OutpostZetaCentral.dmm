@@ -1,40 +1,51 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ajY" = (
-/obj/structure/kitchenspike,
+/obj/machinery/atmospherics/pipe/multiz{
+	dir = 8
+	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "axz" = (
 /obj/machinery/firealarm{
 	dir = 8;
 	pixel_x = 24
 	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	pixel_x = 28;
+	pixel_y = -30
+	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "ayq" = (
 /obj/structure/railing{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aBf" = (
 /obj/structure/stairs/north,
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plasteel/grimy,
+/turf/open/floor/plasteel/stairs/right{
+	color = null;
+	dir = 1;
+	icon = 'icons/obj/stairs.dmi';
+	icon_state = "stairs"
+	},
 /area/space)
 "aBk" = (
-/obj/machinery/gibber,
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold,
+/obj/machinery/light/small,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aBK" = (
-/obj/machinery/door/window/southleft{
-	name = "Kitchen Deliveries";
-	req_access_txt = "28"
-	},
-/obj/structure/window/reinforced/spawner/east,
-/turf/open/floor/plasteel/dark,
-/area/space)
+/turf/closed/wall,
+/area/crew_quarters/kitchen/coldroom)
 "aBN" = (
 /obj/structure/table,
 /obj/machinery/door/firedoor,
@@ -127,21 +138,29 @@
 /turf/open/floor/plasteel/dark,
 /area/space)
 "aMJ" = (
-/obj/structure/reagent_dispensers/cooking_oil,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 6
+	},
+/obj/machinery/airalarm/kitchen_cold_room{
+	pixel_y = 24
+	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aMW" = (
 /obj/machinery/smartfridge,
 /turf/open/floor/plasteel/cafeteria,
 /area/space)
 "aNV" = (
 /obj/structure/railing/corner,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 10
+	},
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aOS" = (
-/obj/machinery/chem_master/condimaster,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aPa" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -153,8 +172,9 @@
 /turf/open/floor/plasteel,
 /area/space)
 "aPd" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold4w,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aQa" = (
 /obj/structure/chair{
 	pixel_y = -2
@@ -167,7 +187,7 @@
 /area/space)
 "aQq" = (
 /turf/open/openspace,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aRv" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 1
@@ -194,7 +214,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/open/floor/plasteel/freezer,
-/area/space)
+/area/crew_quarters/kitchen/coldroom)
 "aRP" = (
 /obj/machinery/jukebox,
 /turf/open/floor/plasteel/grimy,
@@ -374,16 +394,18 @@
 /turf/open/space/basic,
 /area/space)
 "aYP" = (
-/obj/structure/stairs/south,
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/floor/plasteel/grimy,
+/turf/open/floor/plasteel/stairs/right{
+	icon = 'icons/obj/stairs.dmi';
+	icon_state = "stairs"
+	},
 /area/space)
 "aYW" = (
-/obj/structure/plasticflaps,
-/turf/open/space/basic,
-/area/space)
+/obj/structure/reagent_dispensers/cooking_oil,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "bax" = (
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 1
@@ -649,6 +671,36 @@
 "cHK" = (
 /turf/open/floor/plasteel/cafeteria,
 /area/space)
+"dfd" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 9
+	},
+/obj/machinery/light/small,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
+"dCL" = (
+/obj/machinery/chem_master/condimaster,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 5
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
+"eJr" = (
+/obj/machinery/vending/wardrobe/chef_wardrobe,
+/turf/open/floor/plasteel/cafeteria,
+/area/space)
+"eNe" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "fxY" = (
 /obj/structure/window/reinforced,
 /turf/open/floor/grass,
@@ -666,12 +718,29 @@
 "iZH" = (
 /turf/open/floor/grass,
 /area/space)
+"lcX" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plasteel/stairs/right{
+	color = null;
+	dir = 1;
+	icon = 'icons/obj/stairs.dmi';
+	icon_state = "stairs"
+	},
+/area/space)
 "lrg" = (
 /obj/structure/closet/emcloset{
 	name = "plasmaperson emergency closet"
 	},
 /turf/open/floor/plasteel,
 /area/space)
+"lAo" = (
+/mob/living/simple_animal/hostile/retaliate/goat{
+	name = "Pete"
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "lQp" = (
 /obj/machinery/door/firedoor/border_only/closed{
 	name = "Animal Pen A"
@@ -709,6 +778,12 @@
 "sve" = (
 /turf/open/floor/holofloor/wood,
 /area/space)
+"svw" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 4
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "sGs" = (
 /mob/living/simple_animal/chicken{
 	name = "Kentucky";
@@ -716,6 +791,16 @@
 	},
 /turf/open/floor/grass,
 /area/space)
+"sQW" = (
+/obj/structure/sink/kitchen{
+	desc = "A sink used for washing one's hands and face. It looks rusty and home-made";
+	dir = 4;
+	name = "old sink";
+	pixel_x = -12
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "tjz" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -756,6 +841,33 @@
 "wZy" = (
 /turf/open/floor/plasteel/grimy,
 /area/space)
+"xhN" = (
+/obj/structure/stairs/south,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/plasteel/stairs/right{
+	icon = 'icons/obj/stairs.dmi';
+	icon_state = "stairs"
+	},
+/area/space)
+"xlG" = (
+/obj/machinery/food_cart,
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 6
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
+"xTM" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
+	dir = 4
+	},
+/obj/machinery/light_switch{
+	pixel_x = 26;
+	pixel_y = -26
+	},
+/turf/open/floor/plasteel/freezer,
+/area/crew_quarters/kitchen/coldroom)
 "yaH" = (
 /turf/open/floor/plasteel,
 /area/space)
@@ -43554,7 +43666,7 @@ ylY
 bqY
 bqY
 bqY
-cHK
+eJr
 cHK
 tjz
 yaH
@@ -43795,12 +43907,12 @@ ylY
 ylY
 ylY
 ylY
-ylY
-ylY
-ylY
-ylY
-ylY
-ylY
+aBK
+aBK
+aBK
+aBK
+aBK
+aBK
 ylY
 ylY
 bqY
@@ -44052,13 +44164,13 @@ ylY
 ylY
 ylY
 ylY
-bqY
-bqY
-bqY
-bqY
-bqY
-bqY
+aBK
 aYW
+xlG
+sQW
+dCL
+aBK
+bqY
 aKZ
 bqY
 aVY
@@ -44309,13 +44421,13 @@ ylY
 ylY
 ylY
 ylY
-bqY
+aBK
 aMJ
 aPd
 aOS
 aBk
-bqY
 aBK
+aUC
 aUC
 aMW
 cHK
@@ -44566,11 +44678,11 @@ ylY
 ylY
 ylY
 ylY
-bqY
-aMJ
-aPd
-aPd
-aPd
+aBK
+eNe
+svw
+lAo
+xTM
 aRO
 aUC
 aUC
@@ -44823,12 +44935,12 @@ ylY
 ylY
 ylY
 ylY
-bqY
+aBK
 ajY
 aNV
 ayq
-ayq
-bqY
+dfd
+aBK
 aEk
 aUC
 aVQ
@@ -45080,12 +45192,12 @@ ylY
 ylY
 ylY
 ylY
-bqY
-ajY
+aBK
+aYW
 axz
 aQq
 aQq
-bqY
+aBK
 bqY
 aLg
 bqY
@@ -45337,24 +45449,24 @@ ylY
 ylY
 ylY
 ylY
-bqY
-bqY
-bqY
-bqY
-bqY
-bqY
+aBK
+aBK
+aBK
+aBK
+aBK
+aBK
 yaH
 yaH
 bqY
 aBf
-aBf
+lcX
 bax
 wZy
 wZy
 wZy
 aXV
 aYP
-aYP
+xhN
 bqY
 yaH
 yaH
