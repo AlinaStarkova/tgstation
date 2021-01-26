@@ -17,8 +17,10 @@
 
 /obj/item/radio/intercom/directional/west
 	pixel_x = -28
+
 /obj/item/radio/intercom/directional/east
 	pixel_x = 28
+
 /obj/item/radio/intercom/directional/south
 	pixel_y = -28
 
@@ -115,11 +117,6 @@
 /obj/item/radio/intercom/ui_state(mob/user)
 	return GLOB.default_state
 
-/obj/item/radio/ui_interact(mob/user, datum/tgui/ui)
-	ui = SStgui.try_update_ui(user, src, ui)
-	if(!ui)
-		ui = new(user, src, "Radio", name)
-		ui.open()
 
 /obj/item/radio/intercom/can_receive(freq, level)
 	if(!on)

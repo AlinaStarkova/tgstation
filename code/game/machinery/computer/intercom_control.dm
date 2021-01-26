@@ -1,3 +1,5 @@
+#define FREQ_LISTENING (1<<0)
+
 /obj/machinery/computer/intercom_control
 	name = "intercom control console"
 	desc = "Used to remotely control the settings of station intercoms."
@@ -12,10 +14,19 @@
 	var/restoring = FALSE
 	var/list/logs
 	var/auth_id = "\[NULL\]:"
+	var/frequency = FREQ_COMMON
+	var/broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
+	var/listening = TRUE  // Whether the radio is currently receiving.
+
+	var/list/channels = list()
+	var/list/secure_radio_connections
 
 /obj/machinery/computer/intercom_control/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	logs = list()
+	secure_radio_connections = new
+	for(var/ch_name in channels)
+		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
 
 /obj/machinery/computer/intercom_control/process()
 	if(operator && (!operator.Adjacent(src) || machine_stat))
@@ -45,6 +56,14 @@
 	data["restoring"] = restoring
 	data["logs"] = list()
 	data["intercoms"] = list()
+	data["broadcasting"] = broadcasting
+	data["listening"] = listening
+	data["frequency"] = frequency
+	data["minFrequency"] = MIN_FREQ
+	data["maxFrequency"] = MAX_FREQ
+	data["channels"] = list()
+	for(var/channel in channels)
+		data["channels"][channel] = channels[channel] & FREQ_LISTENING
 
 	for(var/entry in logs)
 		data["logs"] += list(list("entry" = entry))
@@ -55,6 +74,9 @@
 			data["intercoms"] += list(list(
 					"name" = A.intercom_tag,
 					"operating" = A.operating,
+					"frequency" = A.frequency,
+					"mic" = A.broadcasting,
+					"speak" = A.listening,
 					"ref" = REF(A)
 				)
 			)
@@ -111,7 +133,7 @@
 				active_intercom.remote_control = null
 				active_intercom = null
 			INTERCOM.remote_control = src
-			INTERCOM.interact(operator)
+			INTERCOM.ui_interact(operator)
 			playsound(src, 'sound/machines/terminal_prompt_confirm.ogg', 50, FALSE)
 			log_game("[key_name(operator)] remotely accessed [INTERCOM] from [src] at [AREACOORD(src)].")
 			log_activity("[auth_id] remotely accessed intercom in [get_area_name(INTERCOM.area, TRUE)]")
@@ -121,6 +143,32 @@
 			log_activity("Checked Logs")
 		if("check-intercoms")
 			log_activity("Checked Intercoms")
+		if("frequency")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			var/tune = params["tune"]
+			var/adjust = text2num(params["adjust"])
+			if(!target)
+				return
+			target.update_icon()
+			if(adjust)
+				tune = target.frequency + adjust * 10
+				. = TRUE
+			else if(text2num(tune) != null)
+				tune = tune * 10
+				. = TRUE
+			if(.)
+				target.set_frequency(sanitize_frequency(tune, FALSE))
+		if("listen")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			target.listening = !target.listening
+			. = TRUE
+		if("broadcast")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			target.broadcasting = !target.broadcasting
+			. = TRUE
 		if("toggle-minor")
 			var/ref = params["ref"]
 			var/type = params["type"]
