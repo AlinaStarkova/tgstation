@@ -89,7 +89,7 @@
 			var/obj/machinery/power/apc/A = term.master
 			if(istype(A))
 				data["areas"] += list(list(
-					"name" = A.area.name,
+					"name" = A.apc_tag,
 					"charge" = A.cell ? A.cell.percent() : 0,
 					"load" = DisplayPower(A.lastused_total),
 					"charging" = A.charging,

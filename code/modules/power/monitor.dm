@@ -109,7 +109,7 @@
 				else
 					cell_charge = A.cell.percent()
 				data["areas"] += list(list(
-					"name" = A.area.name,
+					"name" = A.apc_tag,
 					"charge" = cell_charge,
 					"load" = DisplayPower(A.lastused_total),
 					"charging" = A.charging,

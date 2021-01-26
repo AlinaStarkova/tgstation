@@ -7,18 +7,55 @@
 	canhear_range = 2
 	dog_fashion = null
 	unscrewed = FALSE
+	var/intercom_tag = null
+	var/obj/item/radio/intercom/remote_control = null
+	var/operating = TRUE
+	var/area/area
+
+/obj/item/radio/intercom/directional/north
+	pixel_y = 28
+
+/obj/item/radio/intercom/directional/west
+	pixel_x = -28
+/obj/item/radio/intercom/directional/east
+	pixel_x = 28
+/obj/item/radio/intercom/directional/south
+	pixel_y = -28
+
+/obj/item/radio/intercom/directional/northwest
+	pixel_x = -28
+	pixel_y = 28
+
+/obj/item/radio/intercom/directional/northeast
+	pixel_x = 28
+	pixel_y = 28
+
+/obj/item/radio/intercom/directional/southwest
+	pixel_x = -28
+	pixel_y = -28
+
+/obj/item/radio/intercom/directional/southeast
+	pixel_x = 28
+	pixel_y = -28
 
 /obj/item/radio/intercom/unscrewed
 	unscrewed = TRUE
 
 /obj/item/radio/intercom/Initialize(mapload, ndir, building)
 	. = ..()
+	area = get_area(src)
 	if(building)
 		setDir(ndir)
 	var/area/current_area = get_area(src)
 	if(!current_area)
 		return
 	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+	GLOB.intercom_list += src
+	if(current_area.dept_name == null)
+		intercom_tag = "[get_area_name(current_area, TRUE)]"
+	else
+		intercom_tag = "[get_area_dept_name(current_area, TRUE)] - [get_area_name(current_area, TRUE)]"
+	desc = "Talk through this. A metal plate along its bottom says '[intercom_tag]'"
 
 /obj/item/radio/intercom/examine(mob/user)
 	. = ..()
@@ -51,6 +88,7 @@
 			user.visible_message("<span class='notice'>[user] unsecures [src]!</span>", "<span class='notice'>You detach [src] from the wall.</span>")
 			playsound(src, 'sound/items/deconstruct.ogg', 50, TRUE)
 			new/obj/item/wallframe/intercom(get_turf(src))
+			GLOB.intercom_list -= src
 			qdel(src)
 		return
 	return ..()
@@ -76,6 +114,12 @@
 
 /obj/item/radio/intercom/ui_state(mob/user)
 	return GLOB.default_state
+
+/obj/item/radio/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Radio", name)
+		ui.open()
 
 /obj/item/radio/intercom/can_receive(freq, level)
 	if(!on)

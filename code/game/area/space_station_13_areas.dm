@@ -85,12 +85,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "AI Satellite Exterior"
 	icon_state = "ai"
 	airlock_wires = /datum/wires/airlock/ai
+	camera_network = "minisat"
 
 /area/ai_monitored/command/storage/satellite
 	name = "AI Satellite Maint"
 	icon_state = "ai_storage"
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/ai
+	camera_network = "minisat"
 
 //AI - Turret_protected
 
@@ -102,20 +104,24 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "AI Upload Chamber"
 	icon_state = "ai_upload"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	camera_network = "aiupload"
 
 /area/ai_monitored/turret_protected/ai_upload_foyer
 	name = "AI Upload Access"
 	icon_state = "ai_upload_foyer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	camera_network = "aiupload"
 
 /area/ai_monitored/turret_protected/ai
 	name = "AI Chamber"
 	icon_state = "ai_chamber"
+	camera_network = "aicore"
 
 /area/ai_monitored/turret_protected/aisat
 	name = "AI Satellite"
 	icon_state = "ai"
 	sound_environment = SOUND_ENVIRONMENT_ROOM
+	camera_network = "minisat"
 
 /area/ai_monitored/turret_protected/aisat/atmos
 	name = "AI Satellite Atmos"
@@ -154,6 +160,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 	airlock_wires = /datum/wires/airlock/maint
 	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
+	dept_name = "Maint"
 
 //Maintenance - Departmental
 
@@ -233,6 +240,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Xenobiology Maintenance"
 	icon_state = "xenomaint"
 	area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | XENOBIOLOGY_COMPATIBLE
+	camera_network = "xeno"
 
 //Maintenance - Generic
 
@@ -334,6 +342,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/hallway
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Halls"
 
 /area/hallway/primary
 	name = "Primary Hallway"
@@ -394,6 +403,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambientsounds = list('sound/ambience/signal.ogg')
 	airlock_wires = /datum/wires/airlock/command
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Command"
+	camera_network = "Command"
 
 /area/command/bridge
 	name = "Bridge"
@@ -429,22 +440,27 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/command/heads_quarters/ce
 	name = "Chief Engineer's Office"
 	icon_state = "ce_office"
+	camera_network = "Engineering"
 
 /area/command/heads_quarters/cmo
 	name = "Chief Medical Officer's Office"
 	icon_state = "cmo_office"
+	camera_network = "Medical"
 
 /area/command/heads_quarters/hop
 	name = "Head of Personnel's Office"
 	icon_state = "hop_office"
+	camera_network = "Service"
 
 /area/command/heads_quarters/hos
 	name = "Head of Security's Office"
 	icon_state = "hos_office"
+	camera_network = "Security"
 
 /area/command/heads_quarters/rd
 	name = "Research Director's Office"
 	icon_state = "rd_office"
+	camera_network = "Science"
 
 //Command - Teleporters
 
@@ -464,20 +480,24 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "EVA Storage"
 	icon_state = "eva"
 	ambience_index = AMBIENCE_DANGER
+	dept_name = "Command"
 
 /area/ai_monitored/command/storage/eva/upper
 	name = "Upper EVA Storage"
+	dept_name = "Command"
 
 /area/ai_monitored/command/nuke_storage
 	name = "Vault"
 	icon_state = "nuke_storage"
 	airlock_wires = /datum/wires/airlock/command
+	camera_network = "vault"
 
 //Commons
 
 /area/commons
 	name = "Crew Quarters"
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Commons"
 
 /area/commons/dorms
 	name = "Dormitories"
@@ -559,6 +579,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 //Commons - Storage
 /area/commons/storage
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Storage"
 
 /area/commons/storage/tools
 	name = "Auxiliary Tool Storage"
@@ -588,6 +609,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/service
 	airlock_wires = /datum/wires/airlock/service
+	dept_name = "Service"
+	camera_network = "Service"
 
 /area/service/cafeteria
 	name = "Cafeteria"
@@ -735,13 +758,15 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_name = "Engineering"
+	camera_network = "Engineering"
 
 /area/engineering/engine_smes
 	name = "Engineering SMES"
 	icon_state = "engine_smes"
 
 /area/engineering/main
-	name = "Engineering"
+	name = "Engineering Workfloor"
 	icon_state = "engine"
 
 /area/engineering/atmos
@@ -766,6 +791,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "engine_sm"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	camera_network = "engine"
 
 /area/engineering/break_room
 	name = "Engineering Foyer"
@@ -806,6 +832,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "construction"
 	ambience_index = AMBIENCE_ENGI
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Construction"
+	camera_network = "Engineering"
 
 /area/construction/mining/aux_base
 	name = "Auxiliary Base Construction"
@@ -826,6 +854,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_SPACE
+	dept_name = "Solars"
+	camera_network = "Engineering"
 
 /area/solars/fore
 	name = "Fore Solar Array"
@@ -878,6 +908,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/maintenance/solars
 	name = "Solar Maintenance"
 	icon_state = "yellow"
+	dept_name = "Solars"
 
 /area/maintenance/solars/port
 	name = "Port Solar Maintenance"
@@ -911,6 +942,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_MEDICAL
 	airlock_wires = /datum/wires/airlock/medbay
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Medical"
+	camera_network = "Medical"
 
 /area/medical/abandoned
 	name = "Abandoned Medbay"
@@ -1031,6 +1064,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/security
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Security"
+	camera_network = "Security"
 
 /area/security/office
 	name = "Security Office"
@@ -1051,6 +1086,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison
 	name = "Prison Wing"
 	icon_state = "sec_prison"
+	camera_network = "prison"
 
 /area/security/prison/toilet //radproof
 	name = "Prison Toilet"
@@ -1173,6 +1209,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "armory"
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/security
+	dept_name = "Security"
+	camera_network = "Security"
 
 /area/ai_monitored/security/armory/upper
 	name = "Upper Armory"
@@ -1184,6 +1222,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "quart"
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Supply"
+	camera_network = "Supply"
 
 /area/cargo/sorting
 	name = "Delivery Office"
@@ -1226,6 +1266,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Science"
+	camera_network = "Science"
 
 /area/science/lab
 	name = "Research and Development"
@@ -1247,6 +1289,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Toxins Test Area"
 	icon_state = "tox_test"
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA
+	camera_network = "toxins"
 
 /area/science/mixing
 	name = "Toxins Mixing Lab"
@@ -1309,6 +1352,8 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 											'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg', 'sound/ambience/ambimystery.ogg')
 	airlock_wires = /datum/wires/airlock/engineering
 	network_root_id = STATION_NETWORK_ROOT	// They should of unpluged the router before they left
+	dept_name = "Telecomms"
+	camera_network = "tcomms"
 
 /area/tcommsat/computer
 	name = "Telecomms Control Room"
@@ -1328,11 +1373,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Communications Relay"
 	icon_state = "tcomsatcham"
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Telecomms"
 
 /area/server
 	name = "Messaging Server Room"
 	icon_state = "server"
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_name = "Telecomms"
 
 //External Hull Access
 /area/maintenance/external

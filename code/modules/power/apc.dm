@@ -61,6 +61,7 @@
 	resistance_flags = FIRE_PROOF
 	interaction_flags_machine = INTERACT_MACHINE_WIRES_IF_OPEN | INTERACT_MACHINE_ALLOW_SILICON | INTERACT_MACHINE_OPEN_SILICON
 
+	var/apc_tag
 	var/lon_range = 1.5
 	var/area/area
 	var/areastring = null
@@ -250,7 +251,12 @@
 		area = A
 
 	if(auto_name)
-		name = "\improper [get_area_name(area, TRUE)] APC"
+		if(area.dept_name == null)
+			apc_tag = "\improper [get_area_name(area, TRUE)] APC"
+			desc = "A control terminal for the area's electrical systems. There is a metal plate on the side which says '[get_area_name(area, TRUE)]'"
+		else
+			apc_tag = "\improper [get_area_dept_name(area, TRUE)] - [get_area_name(area, TRUE)] APC"
+			desc = "A control terminal for the area's electrical systems. There is a metal plate on the side which says '[get_area_dept_name(area, TRUE)] - [get_area_name(area, TRUE)]'"
 
 	update_icon()
 

@@ -4,6 +4,7 @@
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
+	camera_network = "mine"
 
 /area/mine/explored
 	name = "Mine"
@@ -76,6 +77,7 @@
 /area/mine/laborcamp
 	name = "Labor Camp"
 	icon_state = "mining_labor"
+	camera_network = "labor"
 
 /area/mine/laborcamp/security
 	name = "Labor Camp Security"

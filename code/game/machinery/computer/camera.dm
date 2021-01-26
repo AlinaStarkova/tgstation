@@ -224,7 +224,7 @@
 /obj/machinery/computer/security/research
 	name = "research camera console"
 	desc = "Used to access the various cameras in science."
-	network = list("rd")
+	network = list("Science")
 	circuit = /obj/item/circuitboard/computer/research
 
 /obj/machinery/computer/security/hos
@@ -241,8 +241,8 @@
 
 /obj/machinery/computer/security/qm
 	name = "\improper Quartermaster's camera console"
-	desc = "A console with access to the mining, auxiliary base and vault camera networks."
-	network = list("mine", "auxbase", "vault")
+	desc = "A console with access to the supply, mining, auxiliary base and vault camera networks."
+	network = list("mine", "auxbase", "vault", "Supply")
 	circuit = null
 
 // TELESCREENS
@@ -299,22 +299,22 @@
 /obj/machinery/computer/security/telescreen/rd
 	name = "\improper Research Director's telescreen"
 	desc = "Used for watching the AI and the RD's goons from the safety of his office."
-	network = list("rd", "aicore", "aiupload", "minisat", "xeno", "test")
+	network = list("Research", "aicore", "aiupload", "minisat", "xeno", "test", "toxins")
 
 /obj/machinery/computer/security/telescreen/research
 	name = "research telescreen"
 	desc = "A telescreen with access to the research division's camera network."
-	network = list("rd")
+	network = list("Science")
 
 /obj/machinery/computer/security/telescreen/ce
 	name = "\improper Chief Engineer's telescreen"
 	desc = "Used for watching the engine, telecommunications and the minisat."
-	network = list("engine", "singularity", "tcomms", "minisat")
+	network = list("engine", "singularity", "tcomms", "minisat", "Engineering")
 
 /obj/machinery/computer/security/telescreen/cmo
 	name = "\improper Chief Medical Officer's telescreen"
 	desc = "A telescreen with access to the medbay's camera network."
-	network = list("medbay")
+	network = list("Medical")
 
 /obj/machinery/computer/security/telescreen/vault
 	name = "vault monitor"

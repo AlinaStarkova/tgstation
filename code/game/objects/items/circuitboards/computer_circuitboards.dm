@@ -53,6 +53,11 @@
 	icon_state = "engineering"
 	build_path = /obj/machinery/computer/apc_control
 
+/obj/item/circuitboard/computer/intercom_control
+	name = "\improper Intercom Control Console (Computer Board)"
+	icon_state = "engineering"
+	build_path = /obj/machinery/computer/intercom_control
+
 /obj/item/circuitboard/computer/atmos_alert
 	name = "Atmospheric Alert (Computer Board)"
 	icon_state = "engineering"

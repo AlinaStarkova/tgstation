@@ -64,7 +64,7 @@
 			var/obj/machinery/power/apc/A = apc
 			var/has_cell = (A.cell) ? TRUE : FALSE
 			data["apcs"] += list(list(
-					"name" = A.area.name,
+					"name" = A.apc_tag,
 					"operating" = A.operating,
 					"charge" = (has_cell) ? A.cell.percent() : "NOCELL",
 					"load" = DisplayPower(A.lastused_total),

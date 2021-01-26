@@ -13,6 +13,8 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	invisibility = INVISIBILITY_LIGHTING
 
+	var/dept_name = null
+
 	var/area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA
 
 	///Do we have an active fire alarm?
@@ -80,6 +82,7 @@
 	/// Area network id when you want to find all devices hooked up to this area
 	var/network_area_id = null
 
+	var/camera_network = null
 	///Used to decide what kind of reverb the area makes sound have
 	var/sound_environment = SOUND_ENVIRONMENT_NONE
 

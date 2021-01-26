@@ -49,6 +49,18 @@
 /obj/machinery/camera/autoname
 	var/number = 0 //camera number in area
 
+/obj/machinery/camera/autoname/north
+	dir = 6
+
+/obj/machinery/camera/autoname/west
+	dir = 4
+
+/obj/machinery/camera/autoname/east
+	dir = 9
+
+/obj/machinery/camera/autoname/south
+	dir = 1
+
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize()
 	..()
@@ -66,8 +78,16 @@
 			if(CA.type == A.type)
 				if(C.number)
 					number = max(number, C.number+1)
-		c_tag = "[A.name] #[number]"
-
+		if(A.dept_name == null)
+			c_tag = "[A.name] #[number]"
+			desc = "It's used to monitor rooms. There is a metal plate on the base which says '[get_area_name(A, TRUE)] #[number]'"
+		else
+			c_tag = "[A.dept_name] - [A.name] #[number]"
+			desc = "It's used to monitor rooms. There is a metal plate on the base which says '[get_area_dept_name(A, TRUE)] - [get_area_name(A, TRUE)] #[number]'"
+		if(A.camera_network)
+			network += A.camera_network
+			if(A.camera_network == "minisat" || A.camera_network == "aiupload" || A.camera_network == "aicore" || A.camera_network == "vault" || A.camera_network == "toxins" || A.camera_network == "labor" || A.camera_network == "mine")
+				network -= "ss13"
 
 // UPGRADE PROCS
 

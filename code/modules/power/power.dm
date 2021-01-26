@@ -430,3 +430,10 @@
 	for(var/obj/machinery/power/apc/APC in GLOB.apcs_list)
 		if(APC.area == src)
 			return APC
+
+
+//return an intercom from the list
+/*/area/proc/get_intercom()
+	for(var/item/radio/intercom/intercom in GLOB.intercom_list)
+		if(intercom.area == src)
+			return intercom*/
