@@ -17,6 +17,8 @@
 	var/frequency = FREQ_COMMON
 	var/broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
 	var/listening = TRUE  // Whether the radio is currently receiving.
+	var/minFrequency = MIN_FREQ
+	var/maxFrequency = MAX_FREQ
 
 	var/list/channels = list()
 	var/list/secure_radio_connections
@@ -59,8 +61,8 @@
 	data["broadcasting"] = broadcasting
 	data["listening"] = listening
 	data["frequency"] = frequency
-	data["minFrequency"] = MIN_FREQ
-	data["maxFrequency"] = MAX_FREQ
+	data["minFrequency"] = minFrequency
+	data["maxFrequency"] = maxFrequency
 	data["channels"] = list()
 	for(var/channel in channels)
 		data["channels"][channel] = channels[channel] & FREQ_LISTENING
