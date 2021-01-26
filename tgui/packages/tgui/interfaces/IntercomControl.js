@@ -10,16 +10,7 @@ import { Window } from '../layouts';
 export const IntercomControl = (props, context) => {
   const { act, data } = useBackend(context);
   const {
-    freqlock,
     frequency,
-    minFrequency,
-    maxFrequency,
-    listening,
-    broadcasting,
-    command,
-    useCommand,
-    subspace,
-    subspaceSwitchable,
   } = data;
   const tunedChannel = RADIO_CHANNELS
     .find(channel => channel.freq === frequency);
@@ -141,13 +132,13 @@ const ControlPanel = (props, context) => {
           content="Channel"
           onClick={() => setSortByField(sortByField !== 'tunedChannel' && 'tunedChannel')} />
         <Button.Checkbox
-          checked={sortByField === 'mic'}
+          checked={sortByField === 'listening'}
           content="Listening"
-          onClick={() => setSortByField(sortByField !== 'mic' && 'mic')} />
+          onClick={() => setSortByField(sortByField !== 'listening' && 'listening')} />
         <Button.Checkbox
-          checked={sortByField === 'speak'}
+          checked={sortByField === 'broadcasting'}
           content="Broadcasting"
-          onClick={() => setSortByField(sortByField !== 'speak' && 'speak')} />
+          onClick={() => setSortByField(sortByField !== 'broadcasting' && 'broadcasting')} />
       </Flex.Item>
       <Flex.Item grow={1} />
       <Flex.Item>
@@ -176,7 +167,19 @@ const ControlPanel = (props, context) => {
 
 const IntercomControlScene = (props, context) => {
   const { data, act } = useBackend(context);
-
+  const {
+    frequency,
+    minFrequency,
+    maxFrequency,
+    listening,
+    broadcasting,
+  } = data;
+  const tunedChannel = RADIO_CHANNELS
+    .find(channel => channel.freq === frequency);
+  const channels = map((value, key) => ({
+    name: key,
+    status: !!value,
+  }))(data.channels);
   const [
     sortByField,
   ] = useLocalState(context, 'sortByField', null);
@@ -218,7 +221,7 @@ const IntercomControlScene = (props, context) => {
                 value={frequency / 10}
                 format={value => toFixed(value, 1)}
                 onDrag={(e, value) => act('frequency', {
-                  adjust: (value - frequency / 10),
+                  adjust: (value - frequency / 10), ref: intercom.ref,
                  })} />
             )}
           </td>
@@ -230,23 +233,21 @@ const IntercomControlScene = (props, context) => {
             )}
           </td>
           <td className="Table__cell text-center text-nowrap">
-            <Button
-              target="mic"
-              status={intercom.mic}
-              icon={listening ? 'volume-up' : 'volume-mute'}
+            <ListeningStatusColorButton
+              target="listening"
+              status={intercom.listening}
               selected={listening}
               intercom={intercom}
-              onClick={() => act('listen')}
-            />
+              act={act}
+              />
           </td>
           <td className="Table__cell text-center text-nowrap">
-            <Button
-              target="speak"
-              status={intercom.speak}
-              icon={broadcasting ? 'microphone' : 'microphone-slash'}
+            <BroadcastingStatusColorButton
+              target="broadcasting"
+              status={intercom.broadcasting}
               selected={broadcasting}
               intercom={intercom}
-              onClick={() => act('broadcast')}
+              act={act}
             />
           </td>
         </tr>
@@ -281,13 +282,30 @@ const LogPanel = (props, context) => {
   );
 };
 
-const AreaStatusColorButton = props => {
+const ListeningStatusColorButton = props => {
   const { target, status, intercom, act } = props;
-  const power = Boolean(status & 2);
-  const mode = Boolean(status & 1);
+  const power = Boolean(status & 1);
+  const listening = Boolean(status & 1);
   return (
     <Button
-      icon={mode ? 'sync' : 'power-off'}
+      icon={listening ? 'volume-up' : 'volume-mute'}
+      color={power ? 'good' : 'bad'}
+      onClick={() => act('toggle-minor', {
+        type: target,
+        value: statusChange(status),
+        ref: intercom.ref,
+      })}
+    />
+  );
+};
+
+const BroadcastingStatusColorButton = props => {
+  const { target, status, intercom, act } = props;
+  const power = Boolean(status & 1);
+  const broadcasting = Boolean(status & 1);
+  return (
+    <Button
+      icon={broadcasting ? 'microphone' : 'microphone-slash'}
       color={power ? 'good' : 'bad'}
       onClick={() => act('toggle-minor', {
         type: target,
@@ -301,8 +319,9 @@ const AreaStatusColorButton = props => {
 const statusChange = status => {
   // mode flip power flip both flip
   // 0, 2, 3
-  return status === 0 ? 2 : status === 2 ? 3 : 0;
+  return status ?  0 : 1;
 };
 
-AreaStatusColorButton.defaultHooks = pureComponentHooks;
+ListeningStatusColorButton.defaultHooks = pureComponentHooks;
+BroadcastingStatusColorButton.defaultHooks = pureComponentHooks;
 

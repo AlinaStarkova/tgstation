@@ -17,18 +17,11 @@
 	var/frequency = FREQ_COMMON
 	var/broadcasting = FALSE  // Whether the radio will transmit dialogue it hears nearby.
 	var/listening = TRUE  // Whether the radio is currently receiving.
-	var/minFrequency = MIN_FREQ
-	var/maxFrequency = MAX_FREQ
 
-	var/list/channels = list()
-	var/list/secure_radio_connections
 
 /obj/machinery/computer/intercom_control/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	logs = list()
-	secure_radio_connections = new
-	for(var/ch_name in channels)
-		secure_radio_connections[ch_name] = add_radio(src, GLOB.radiochannels[ch_name])
 
 /obj/machinery/computer/intercom_control/process()
 	if(operator && (!operator.Adjacent(src) || machine_stat))
@@ -58,14 +51,6 @@
 	data["restoring"] = restoring
 	data["logs"] = list()
 	data["intercoms"] = list()
-	data["broadcasting"] = broadcasting
-	data["listening"] = listening
-	data["frequency"] = frequency
-	data["minFrequency"] = minFrequency
-	data["maxFrequency"] = maxFrequency
-	data["channels"] = list()
-	for(var/channel in channels)
-		data["channels"][channel] = channels[channel] & FREQ_LISTENING
 
 	for(var/entry in logs)
 		data["logs"] += list(list("entry" = entry))
@@ -77,8 +62,11 @@
 					"name" = A.intercom_tag,
 					"operating" = A.operating,
 					"frequency" = A.frequency,
-					"mic" = A.broadcasting,
-					"speak" = A.listening,
+					"minFrequency" = A.freerange ? MIN_FREE_FREQ : MIN_FREQ,
+					"maxFrequency" = A.freerange ? MAX_FREE_FREQ : MAX_FREQ,
+					"channels" = A.channels,
+					"broadcasting" = A.broadcasting,
+					"listening" = A.listening,
 					"ref" = REF(A)
 				)
 			)
@@ -177,24 +165,26 @@
 			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
 			if(!target)
 				return
+			if(type == "broadcasting")
+				target.broadcasting = !target.broadcasting
+			. = TRUE
+			if(type == "listening")
+				target.listening = !target.listening
+			. = TRUE
 			target.update_icon()
 			var/setTo = ""
 			switch(target.vars[type])
 				if(0)
 					setTo = "Off"
 				if(1)
-					setTo = "Auto Off"
-				if(2)
 					setTo = "On"
-				if(3)
-					setTo = "Auto On"
-			log_activity("Set Intercom [target.area.name] [type] to [setTo]")
-			log_game("[key_name(operator)] Set Intercom [target.area.name] [type] to [setTo]]")
+			log_activity("Set Intercom [target.intercom_tag] [type] to [setTo]")
+			log_game("[key_name(operator)] Set Intercom [target.intercom_tag] [type] to [setTo]]")
 		if("breaker")
 			var/ref = params["ref"]
 			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
 			var/setTo = target.operating ? "On" : "Off"
-			log_activity("Turned Intercom [target.area.name]'s breaker [setTo]")
+			log_activity("Turned Intercom [target.intercom_tag]'s breaker [setTo]")
 
 /obj/machinery/computer/intercom_control/emag_act(mob/user)
 	if(obj_flags & EMAGGED)
