@@ -33,7 +33,7 @@
 
 
 /obj/machinery/computer/intercom_control/proc/check_intercom(obj/item/radio/intercom/INTERCOM)
-	return INTERCOM.z == z && !(INTERCOM.obj_flags & EMAGGED) && !istype(INTERCOM.area, /area/ai_monitored) && !(INTERCOM.area.area_flags & NO_ALERTS)
+	return INTERCOM.z == z && !(INTERCOM.obj_flags & EMAGGED) && !istype(INTERCOM.area, /area/ai_monitored) && !(INTERCOM.area.area_flags & NO_ALERTS) && !INTERCOM.anonymize
 
 /obj/machinery/computer/intercom_control/ui_interact(mob/user, datum/tgui/ui)
 	operator = user
@@ -67,7 +67,12 @@
 					"channels" = A.channels,
 					"broadcasting" = A.broadcasting,
 					"listening" = A.listening,
-					"ref" = REF(A)
+					"ref" = REF(A),
+					"command" = A.command,
+					"useCommand" = A.use_command,
+					"subspace" = A.subspace_transmission,
+					"subspaceSwitchable" = A.subspace_switchable,
+					"headset" = FALSE
 				)
 			)
 	return data
@@ -84,11 +89,18 @@
 				auth_id = "Unknown (Unknown):"
 				log_activity("[auth_id] logged in to the terminal")
 				return
-			var/obj/item/card/id/ID = operator.get_idcard(TRUE)
-			if(ID && istype(ID))
-				if(check_access(ID))
+			var/obj/item/card/id/ID
+			if(!issilicon(operator))
+				ID = operator.get_idcard(TRUE)
+			if(ID && istype(ID) || issilicon(operator))
+				if(!issilicon(operator) && check_access(ID))
 					authenticated = TRUE
 					auth_id = "[ID.registered_name] ([ID.assignment]):"
+					log_activity("[auth_id] logged in to the terminal")
+					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
+				else if(issilicon(operator))
+					authenticated = TRUE
+					auth_id = "[operator.name] (Silicon):"
 					log_activity("[auth_id] logged in to the terminal")
 					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
 				else
@@ -136,11 +148,10 @@
 		if("frequency")
 			var/ref = params["ref"]
 			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			if(target.freqlock)
+				return
 			var/tune = params["tune"]
 			var/adjust = text2num(params["adjust"])
-			if(!target)
-				return
-			target.update_icon()
 			if(adjust)
 				tune = target.frequency + adjust * 10
 				. = TRUE
@@ -148,7 +159,34 @@
 				tune = tune * 10
 				. = TRUE
 			if(.)
-				target.set_frequency(sanitize_frequency(tune, FALSE))
+				target.set_frequency(sanitize_frequency(tune, target.freerange))
+			log_activity("Changed the Frequency of [target.intercom_tag]")
+		if("channel")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			var/channel = params["channel"]
+			if(!(channel in target.channels))
+				return
+			if(target.channels[channel] & FREQ_LISTENING)
+				target.channels[channel] &= ~FREQ_LISTENING
+			else
+				target.channels[channel] |= FREQ_LISTENING
+			. = TRUE
+		if("command")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			target.use_command = !target.use_command
+			. = TRUE
+		if("subspace")
+			var/ref = params["ref"]
+			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list
+			if(target.subspace_switchable)
+				target.subspace_transmission = !target.subspace_transmission
+				if(!target.subspace_transmission)
+					target.channels = list()
+				else
+					target.recalculateChannels()
+				. = TRUE
 		if("listen")
 			var/ref = params["ref"]
 			var/obj/item/radio/intercom/target = locate(ref) in GLOB.intercom_list

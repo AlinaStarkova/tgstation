@@ -123,22 +123,6 @@ const ControlPanel = (props, context) => {
           checked={sortByField === 'name'}
           content="Name"
           onClick={() => setSortByField(sortByField !== 'name' && 'name')} />
-        <Button.Checkbox
-          checked={sortByField === 'frequency'}
-          content="Frequency"
-          onClick={() => setSortByField(sortByField !== 'frequency' && 'frequency')} />
-        <Button.Checkbox
-          checked={sortByField === 'tunedChannel'}
-          content="Channel"
-          onClick={() => setSortByField(sortByField !== 'tunedChannel' && 'tunedChannel')} />
-        <Button.Checkbox
-          checked={sortByField === 'listening'}
-          content="Listening"
-          onClick={() => setSortByField(sortByField !== 'listening' && 'listening')} />
-        <Button.Checkbox
-          checked={sortByField === 'broadcasting'}
-          content="Broadcasting"
-          onClick={() => setSortByField(sortByField !== 'broadcasting' && 'broadcasting')} />
       </Flex.Item>
       <Flex.Item grow={1} />
       <Flex.Item>
@@ -168,14 +152,17 @@ const ControlPanel = (props, context) => {
 const IntercomControlScene = (props, context) => {
   const { data, act } = useBackend(context);
   const {
+    freqlock,
     frequency,
     minFrequency,
     maxFrequency,
     listening,
     broadcasting,
+    command,
+    useCommand,
+    subspace,
+    subspaceSwitchable,
   } = data;
-  const tunedChannel = RADIO_CHANNELS
-    .find(channel => channel.freq === frequency);
   const channels = map((value, key) => ({
     name: key,
     status: !!value,
@@ -192,6 +179,8 @@ const IntercomControlScene = (props, context) => {
     })),
     sortByField === 'name' && sortBy(intercom => intercom.name),
   ])(data.intercoms);
+  const tunedChannel = RADIO_CHANNELS
+  .find(channel => channel.freq === frequency);
   return (
     <Table>
       <Table.Row header>
@@ -207,30 +196,30 @@ const IntercomControlScene = (props, context) => {
             {intercom.name}
           </td>
           <td>
-            {(
-              <NumberInput
-                target="frequency"
-                status={intercom.frequency}
-                intercom={intercom}
-                animate
-                unit="kHz"
-                step={0.2}
-                stepPixelSize={10}
-                minValue={minFrequency / 10}
-                maxValue={maxFrequency / 10}
-                value={frequency / 10}
-                format={value => toFixed(value, 1)}
-                onDrag={(e, value) => act('frequency', {
-                  adjust: (value - frequency / 10), ref: intercom.ref,
-                 })} />
-            )}
-          </td>
-          <td>
-            {tunedChannel && (
-               <Box inline color={tunedChannel.color} ml={2}>
-                 [{tunedChannel.name}]
-              </Box>
-            )}
+          {freqlock && (
+                <Box inline color="light-gray">
+                  {toFixed(intercom.frequency / 10, 1) + ' kHz'}
+                </Box>
+              ) || (
+                <NumberInput
+                  target="frequency"
+                  intercom={intercom}
+                  animate
+                  unit="kHz"
+                  step={0.2}
+                  stepPixelSize={10}
+                  minValue={minFrequency / 10}
+                  maxValue={maxFrequency / 10}
+                  value={intercom.frequency / 10}
+                  format={value => toFixed(value, 1)}
+                  onDrag={(e, value) => act('frequency', {
+                    adjust: (value - intercom.frequency / 10), ref: intercom.ref,
+                  })} />)}
+              {tunedChannel && (
+                <Box inline color={tunedChannel.color} ml={2}>
+                  [{tunedChannel.name}]
+                </Box>
+              )}
           </td>
           <td className="Table__cell text-center text-nowrap">
             <ListeningStatusColorButton
