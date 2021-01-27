@@ -239,6 +239,15 @@
 		cell = new cell_type
 		cell.charge = start_charge * cell.maxcharge / 100 		// (convert percentage to actual value)
 
+	set_apc_tag()
+
+	update_icon()
+
+	make_terminal()
+
+	addtimer(CALLBACK(src, .proc/update), 5)
+
+/obj/machinery/power/apc/proc/set_apc_tag()
 	var/area/A = loc.loc
 
 	//if area isn't specified use current
@@ -257,12 +266,6 @@
 		else
 			apc_tag = "\improper [get_area_dept_name(area, TRUE)] - [get_area_name(area, TRUE)] APC"
 			desc = "A control terminal for the area's electrical systems. There is a metal plate on the side which says '[get_area_dept_name(area, TRUE)] - [get_area_name(area, TRUE)]'"
-
-	update_icon()
-
-	make_terminal()
-
-	addtimer(CALLBACK(src, .proc/update), 5)
 
 /obj/machinery/power/apc/ComponentInitialize()
 	. = ..()

@@ -5,7 +5,7 @@
 	desc = "Used to remotely control the settings of station intercoms."
 	icon_screen = "comm_monitor"
 	icon_keyboard = "generic_key"
-	req_access = list(ACCESS_HEADS)
+	req_access = list(ACCESS_RD)
 	circuit = /obj/item/circuitboard/computer/apc_control
 	light_color = LIGHT_COLOR_GREEN
 	var/mob/living/operator //Who's operating the computer right now
@@ -33,7 +33,7 @@
 
 
 /obj/machinery/computer/intercom_control/proc/check_intercom(obj/item/radio/intercom/INTERCOM)
-	return INTERCOM.z == z && !(INTERCOM.obj_flags & EMAGGED) && !istype(INTERCOM.area, /area/ai_monitored) && !(INTERCOM.area.area_flags & NO_ALERTS) && !INTERCOM.anonymize
+	return INTERCOM.z == z && !(INTERCOM.obj_flags & EMAGGED) && !(INTERCOM.aiarea == TRUE) && !INTERCOM.anonymize && !(INTERCOM.freerange == TRUE) && !(INTERCOM.syndie == TRUE)
 
 /obj/machinery/computer/intercom_control/ui_interact(mob/user, datum/tgui/ui)
 	operator = user
@@ -90,17 +90,19 @@
 				log_activity("[auth_id] logged in to the terminal")
 				return
 			var/obj/item/card/id/ID
-			if(!issilicon(operator))
+			if(issilicon(operator) || isAI(operator))
+				continue
+			else
 				ID = operator.get_idcard(TRUE)
 			if(ID && istype(ID) || issilicon(operator))
-				if(!issilicon(operator) && check_access(ID))
-					authenticated = TRUE
-					auth_id = "[ID.registered_name] ([ID.assignment]):"
-					log_activity("[auth_id] logged in to the terminal")
-					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
-				else if(issilicon(operator))
+				if(issilicon(operator))
 					authenticated = TRUE
 					auth_id = "[operator.name] (Silicon):"
+					log_activity("[auth_id] logged in to the terminal")
+					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
+				else if(check_access(ID))
+					authenticated = TRUE
+					auth_id = "[ID.registered_name] ([ID.assignment]):"
 					log_activity("[auth_id] logged in to the terminal")
 					playsound(src, 'sound/machines/terminal_on.ogg', 50, FALSE)
 				else

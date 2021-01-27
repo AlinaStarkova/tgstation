@@ -11,6 +11,8 @@
 	var/obj/item/radio/intercom/remote_control = null
 	var/operating = TRUE
 	var/area/area
+	var/number = 0 //intercom number in area
+	var/aiarea = FALSE
 
 /obj/item/radio/intercom/directional/north
 	pixel_y = 28
@@ -46,18 +48,47 @@
 /obj/item/radio/intercom/Initialize(mapload, ndir, building)
 	. = ..()
 	area = get_area(src)
+	if(area.intercom_network == "ai" || area.intercom_network == "tcomms")
+		aiarea = TRUE
 	if(building)
 		setDir(ndir)
 	var/area/current_area = get_area(src)
 	if(!current_area)
 		return
-	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
 	GLOB.intercom_list += src
+	set_tag()
+	RegisterSignal(current_area, COMSIG_AREA_POWER_CHANGE, .proc/AreaPowerCheck)
+
+
+/obj/item/radio/intercom/proc/set_tag()
+	number = 1
+	var/area/current_area = get_area(src)
+	if(current_area)
+		for(var/obj/item/radio/intercom/C in GLOB.intercom_list)
+			if(C == src)
+				continue
+			var/area/CA = get_area(C)
+			if(CA.type == current_area.type)
+				if(C.number)
+					number = max(number, C.number+1)
+	if(!current_area)
+		return
 	if(current_area.dept_name == null)
-		intercom_tag = "[get_area_name(current_area, TRUE)]"
+		intercom_tag = "[get_area_name(current_area, TRUE)] #[number]"
 	else
-		intercom_tag = "[get_area_dept_name(current_area, TRUE)] - [get_area_name(current_area, TRUE)]"
+		intercom_tag = "[get_area_dept_name(current_area, TRUE)] - [get_area_name(current_area, TRUE)] #[number]"
 	desc = "Talk through this. A metal plate along its bottom says '[intercom_tag]'"
+
+/obj/item/radio/intercom/emag_act(mob/user)
+	if(!(obj_flags & EMAGGED))
+		flick("apc-spark", src)
+		playsound(src, "sparks", 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		obj_flags |= EMAGGED
+		freerange = TRUE
+		syndie = 1
+		frequency = 1213
+		to_chat(user, "<span class='notice'>You emag the Intercom interface.</span>")
+		update_icon()
 
 /obj/item/radio/intercom/examine(mob/user)
 	. = ..()

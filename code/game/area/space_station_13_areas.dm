@@ -80,6 +80,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/ai_monitored
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	intercom_network = "ai"
 
 /area/ai_monitored/aisat/exterior
 	name = "AI Satellite Exterior"
@@ -1354,6 +1355,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	network_root_id = STATION_NETWORK_ROOT	// They should of unpluged the router before they left
 	dept_name = "Telecomms"
 	camera_network = "tcomms"
+	intercom_network = "tcomms"
 
 /area/tcommsat/computer
 	name = "Telecomms Control Room"
@@ -1374,12 +1376,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "tcomsatcham"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	dept_name = "Telecomms"
+	intercom_network = "tcomms"
 
 /area/server
 	name = "Messaging Server Room"
 	icon_state = "server"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	dept_name = "Telecomms"
+	intercom_network = "tcomms"
 
 //External Hull Access
 /area/maintenance/external

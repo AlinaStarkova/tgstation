@@ -29407,11 +29407,10 @@
 /turf/open/floor/plasteel/grimy,
 /area/tcommsat/computer)
 "bvz" = (
-/obj/structure/table/wood,
 /obj/machinery/status_display/ai{
 	pixel_y = 31
 	},
-/obj/item/flashlight/lamp,
+/obj/machinery/computer/intercom_control,
 /turf/open/floor/plasteel/grimy,
 /area/tcommsat/computer)
 "bvA" = (
@@ -31292,11 +31291,8 @@
 	dir = 8;
 	pixel_x = 24
 	},
-/obj/item/paper_bin{
-	pixel_x = -1;
-	pixel_y = 6
-	},
 /obj/structure/table/wood,
+/obj/item/flashlight/lamp,
 /turf/open/floor/plasteel/grimy,
 /area/tcommsat/computer)
 "bBb" = (
@@ -34205,15 +34201,25 @@
 /area/tcommsat/computer)
 "bJi" = (
 /obj/machinery/light/small,
-/obj/item/folder,
-/obj/item/folder,
+/obj/item/folder{
+	pixel_x = -6
+	},
+/obj/item/folder{
+	pixel_x = -6
+	},
 /obj/machinery/camera{
 	c_tag = "Telecomms - Control Room";
 	dir = 1;
 	network = list("ss13","tcomms")
 	},
 /obj/structure/table/wood,
-/obj/item/pen,
+/obj/item/pen{
+	pixel_x = -5
+	},
+/obj/item/paper_bin{
+	pixel_x = 9;
+	pixel_y = 3
+	},
 /turf/open/floor/plasteel/grimy,
 /area/tcommsat/computer)
 "bJk" = (

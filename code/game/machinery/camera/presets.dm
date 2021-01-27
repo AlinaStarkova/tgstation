@@ -68,6 +68,11 @@
 
 /obj/machinery/camera/autoname/LateInitialize()
 	. = ..()
+	set_tag_network()
+
+// UPGRADE PROCS
+
+/obj/machinery/camera/autoname/proc/set_tag_network()
 	number = 1
 	var/area/A = get_area(src)
 	if(A)
@@ -80,16 +85,13 @@
 					number = max(number, C.number+1)
 		if(A.dept_name == null)
 			c_tag = "[A.name] #[number]"
-			desc = "It's used to monitor rooms. There is a metal plate on the base which says '[get_area_name(A, TRUE)] #[number]'"
 		else
 			c_tag = "[A.dept_name] - [A.name] #[number]"
-			desc = "It's used to monitor rooms. There is a metal plate on the base which says '[get_area_dept_name(A, TRUE)] - [get_area_name(A, TRUE)] #[number]'"
+		desc = "It's used to monitor rooms. There is a metal plate on the base which says '[c_tag]'"
 		if(A.camera_network)
 			network += A.camera_network
 			if(A.camera_network == "minisat" || A.camera_network == "aiupload" || A.camera_network == "aicore" || A.camera_network == "vault" || A.camera_network == "toxins" || A.camera_network == "labor" || A.camera_network == "mine")
 				network -= "ss13"
-
-// UPGRADE PROCS
 
 /obj/machinery/camera/proc/isEmpProof(ignore_malf_upgrades)
 	return (upgrades & CAMERA_UPGRADE_EMP_PROOF) && (!(ignore_malf_upgrades && assembly.malf_emp_firmware_active))
