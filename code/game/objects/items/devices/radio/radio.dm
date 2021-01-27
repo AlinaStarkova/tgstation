@@ -1,5 +1,3 @@
-#define FREQ_LISTENING (1<<0)
-
 /obj/item/radio
 	icon = 'icons/obj/radio.dmi'
 	name = "station bounced radio"

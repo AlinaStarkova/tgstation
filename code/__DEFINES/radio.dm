@@ -50,6 +50,8 @@
 #define RADIO_CHANNEL_CTF_BLUE "Blue Team"
 
 
+#define FREQ_LISTENING (1<<0)
+
 #define MIN_FREE_FREQ 1201 // -------------------------------------------------
 // Frequencies are always odd numbers and range from 1201 to 1599.
 

@@ -86,8 +86,7 @@
 		obj_flags |= EMAGGED
 		freerange = TRUE
 		syndie = 1
-		frequency = 1213
-		to_chat(user, "<span class='notice'>You emag the Intercom interface.</span>")
+		to_chat(user, "<span class='notice'>You emag the Intercom interface. Frequency 121.3 is now Available.</span>")
 		update_icon()
 
 /obj/item/radio/intercom/examine(mob/user)

@@ -1,5 +1,3 @@
-#define FREQ_LISTENING (1<<0)
-
 /obj/machinery/computer/intercom_control
 	name = "intercom control console"
 	desc = "Used to remotely control the settings of station intercoms."
@@ -90,9 +88,7 @@
 				log_activity("[auth_id] logged in to the terminal")
 				return
 			var/obj/item/card/id/ID
-			if(issilicon(operator) || isAI(operator))
-				continue
-			else
+			if(isliving(operator) && !issilicon(operator))
 				ID = operator.get_idcard(TRUE)
 			if(ID && istype(ID) || issilicon(operator))
 				if(issilicon(operator))

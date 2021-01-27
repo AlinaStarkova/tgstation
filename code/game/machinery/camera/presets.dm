@@ -4,7 +4,14 @@
 /obj/machinery/camera/emp_proof
 	start_active = TRUE
 
+/obj/machinery/camera/autoname/emp_proof
+	start_active = TRUE
+
 /obj/machinery/camera/emp_proof/Initialize()
+	. = ..()
+	upgradeEmpProof()
+
+/obj/machinery/camera/autoname/emp_proof/Initialize()
 	. = ..()
 	upgradeEmpProof()
 
@@ -14,13 +21,25 @@
 	. = ..()
 	upgradeMotion()
 
+/obj/machinery/camera/autoname/emp_proof/motion/Initialize()
+	. = ..()
+	upgradeMotion()
+
 // X-ray
 
 /obj/machinery/camera/xray
 	start_active = TRUE
 	icon_state = "xraycamera" //mapping icon - Thanks to Krutchen for the icons.
 
+/obj/machinery/camera/autoname/xray
+	start_active = TRUE
+	icon_state = "xraycamera" //mapping icon - Thanks to Krutchen for the icons.
+
 /obj/machinery/camera/xray/Initialize()
+	. = ..()
+	upgradeXRay()
+
+/obj/machinery/camera/autoname/xray/Initialize()
 	. = ..()
 	upgradeXRay()
 
@@ -29,12 +48,24 @@
 	start_active = TRUE
 	name = "motion-sensitive security camera"
 
+/obj/machinery/camera/autoname/motion
+	start_active = TRUE
+	name = "motion-sensitive security camera"
+
 /obj/machinery/camera/motion/Initialize()
+	. = ..()
+	upgradeMotion()
+
+/obj/machinery/camera/autoname/motion/Initialize()
 	. = ..()
 	upgradeMotion()
 
 // ALL UPGRADES
 /obj/machinery/camera/all
+	start_active = TRUE
+	icon_state = "xraycamera" //mapping icon.
+
+/obj/machinery/camera/autoname/all
 	start_active = TRUE
 	icon_state = "xraycamera" //mapping icon.
 
@@ -44,22 +75,16 @@
 	upgradeXRay()
 	upgradeMotion()
 
+/obj/machinery/camera/autoname/all/Initialize()
+	. = ..()
+	upgradeEmpProof()
+	upgradeXRay()
+	upgradeMotion()
+
 // AUTONAME
 
 /obj/machinery/camera/autoname
 	var/number = 0 //camera number in area
-
-/obj/machinery/camera/autoname/north
-	dir = 6
-
-/obj/machinery/camera/autoname/west
-	dir = 4
-
-/obj/machinery/camera/autoname/east
-	dir = 9
-
-/obj/machinery/camera/autoname/south
-	dir = 1
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
 /obj/machinery/camera/autoname/Initialize()

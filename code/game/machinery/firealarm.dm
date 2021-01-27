@@ -39,6 +39,22 @@
 	//Has this firealarm been triggered by its enviroment?
 	var/triggered = FALSE
 
+/obj/machinery/firealarm/north
+	dir = 1
+	pixel_y = 24
+
+/obj/machinery/firealarm/south
+	dir = 2
+	pixel_y = -24
+
+/obj/machinery/firealarm/east
+	dir = 8
+	pixel_x = 24
+
+/obj/machinery/firealarm/west
+	dir = 4
+	pixel_x = -24
+
 /obj/machinery/firealarm/Initialize(mapload, dir, building)
 	. = ..()
 	if(dir)
