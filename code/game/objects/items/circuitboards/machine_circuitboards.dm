@@ -1364,3 +1364,32 @@
 	build_path = /obj/machinery/ecto_sniffer
 	req_components = list(
 		/obj/item/stock_parts/scanning_module = 1)
+
+//factory circuitboards
+
+/obj/item/circuitboard/machine/factory/input
+	name = "Factory Input (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/factory/input
+	req_components = list(
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stack/cable_coil = 2)
+
+/obj/item/circuitboard/machine/factory/output
+	name = "Factory Output (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/factory/output
+	req_components = list(
+		/obj/item/stock_parts/matter_bin = 1,
+		/obj/item/stock_parts/manipulator = 2,
+		/obj/item/stack/cable_coil = 2)
+
+/obj/item/circuitboard/machine/factory/metal_shaper
+	name = "Factory Metal Shaper (Machine Board)"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/factory/metal_shaper
+	req_components = list(
+		/obj/item/stock_parts/matter_bin = 2,
+		/obj/item/stock_parts/manipulator = 5,
+		/obj/item/stack/cable_coil = 5)
