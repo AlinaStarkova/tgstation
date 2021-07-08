@@ -82,6 +82,10 @@
 	severity = 0
 	. = ..()
 
+/atom/movable/screen/fullscreen/combat_i
+	name = "Combat Mode"
+	icon_state = "combat_i"
+
 /atom/movable/screen/fullscreen/emergency_meeting
 	icon_state = "emergency_meeting"
 	show_when_dead = TRUE

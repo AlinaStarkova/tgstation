@@ -77,6 +77,10 @@
 	combat_mode = new_mode
 	if(hud_used?.action_intent)
 		hud_used.action_intent.update_appearance()
+		if(combat_mode)
+			overlay_fullscreen("combat_i", /atom/movable/screen/fullscreen/combat_i, 1)
+		else
+			clear_fullscreen("combat_i")
 	if(silent || !(client?.prefs.toggles & SOUND_COMBATMODE))
 		return
 	if(combat_mode)
