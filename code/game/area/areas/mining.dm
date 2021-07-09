@@ -4,6 +4,7 @@
 	icon_state = "mining"
 	has_gravity = STANDARD_GRAVITY
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
+	dept_id = "mine"
 
 /area/mine/explored
 	name = "Mine"
@@ -20,6 +21,7 @@
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	min_ambience_cooldown = 70 SECONDS
 	max_ambience_cooldown = 220 SECONDS
+	dept_id = null
 
 /area/mine/unexplored
 	name = "Mine"
@@ -36,6 +38,7 @@
 	map_generator = /datum/map_generator/cave_generator
 	min_ambience_cooldown = 70 SECONDS
 	max_ambience_cooldown = 220 SECONDS
+	dept_id = null
 
 /area/mine/lobby
 	name = "Mining Station"
@@ -81,6 +84,7 @@
 /area/mine/laborcamp
 	name = "Labor Camp"
 	icon_state = "mining_labor"
+	dept_id = "labor"
 
 /area/mine/laborcamp/security
 	name = "Labor Camp Security"

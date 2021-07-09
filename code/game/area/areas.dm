@@ -15,6 +15,8 @@
 
 	var/area_flags = VALID_TERRITORY | BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
 
+	var/dept_id = null
+
 	///Do we have an active fire alarm?
 	var/fire = FALSE
 	///How many fire alarm sources do we have?

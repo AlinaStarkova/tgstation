@@ -96,6 +96,76 @@
 /// Bit shift for the environment channel status of the APC.
 #define UPOVERLAY_ENVIRON_SHIFT (8)
 
+/obj/machinery/power/apc/dpc
+	name = "department power controller"
+	desc = "A control terminal for the departments's electrical systems."
+	//todo: make this figure out what rooms are part of a dept.
+	var/area/dept_areas = list()
+	var/dept
+
+/obj/machinery/power/apc/dpc/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/atmos_sensitive, mapload)
+
+	if(!mapload)
+		return
+	has_electronics = APC_ELECTRONICS_SECURED
+	// is starting with a power cell installed, create it and set its charge level
+	if(cell_type)
+		cell = new cell_type
+		cell.charge = start_charge * cell.maxcharge / 100 // (convert percentage to actual value)
+
+	var/area/A = loc.loc
+
+	//if area isn't specified use current
+	if(areastring)
+		area = get_area_instance_from_text(areastring)
+		if(!area)
+			area = A
+			stack_trace("Bad areastring path for [src], [areastring]")
+	else if(isarea(A) && areastring == null)
+		area = A
+
+	//todo: make this learn the department name
+	if(auto_name)
+		if(area.dept_id)
+			dept = area.dept_id
+			name = "\improper [dept] DPC"
+			get_dept_areas(dept)
+		else
+			name = "\improper [get_area_name(area, TRUE)] DPC"
+
+	update_appearance()
+
+	make_terminal()
+
+	addtimer(CALLBACK(src, .proc/update), 5)
+
+/obj/machinery/power/apc/dpc/proc/get_dept_areas(dept)
+	for(var/A in GLOB.areas_by_type[/area/dept])
+		var/area/V = A
+		dept_areas.add(V)
+
+/obj/machinery/power/apc/dpc/auto_name
+	auto_name = TRUE
+
+/obj/machinery/power/apc/dpc/auto_name/north //Pixel offsets get overwritten on New()
+	dir = NORTH
+	pixel_y = 23
+
+/obj/machinery/power/apc/dpc/auto_name/south
+	dir = SOUTH
+	pixel_y = -23
+
+/obj/machinery/power/apc/dpc/auto_name/east
+	dir = EAST
+	pixel_x = 24
+
+/obj/machinery/power/apc/dpc/auto_name/west
+	dir = WEST
+	pixel_x = -25
+
+
 // the Area Power Controller (APC), formerly Power Distribution Unit (PDU)
 // one per area, needs wire connection to power network through a terminal
 

@@ -474,6 +474,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambientsounds = list('sound/ambience/signal.ogg')
 	airlock_wires = /datum/wires/airlock/command
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "command"
 
 /area/command/bridge
 	name = "Bridge"
@@ -559,6 +560,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Crew Quarters"
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	area_flags = BLOBS_ALLOWED | UNIQUE_AREA | CULT_PERMITTED
+	dept_id = "commons"
 
 /area/commons/dorms
 	name = "Dormitories"
@@ -672,6 +674,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/service
 	airlock_wires = /datum/wires/airlock/service
+	dept_id = "service"
 
 /area/service/cafeteria
 	name = "Cafeteria"
@@ -710,10 +713,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/electronic_marketing_den
 	name = "Electronic Marketing Den"
 	icon_state = "abandoned_m_den"
+	dept_id = null
 
 /area/service/abandoned_gambling_den
 	name = "Abandoned Gambling Den"
 	icon_state = "abandoned_g_den"
+	dept_id = null
 
 /area/service/abandoned_gambling_den/secondary
 	icon_state = "abandoned_g_den_2"
@@ -726,6 +731,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/theater/abandoned
 	name = "Abandoned Theater"
 	icon_state = "abandoned_theatre"
+	dept_id = null
 
 /area/service/library
 	name = "Library"
@@ -760,6 +766,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/library/abandoned
 	name = "Abandoned Library"
 	icon_state = "abandoned_library"
+	dept_id = null
 
 /area/service/chapel
 	icon_state = "chapel"
@@ -821,6 +828,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Abandoned Garden"
 	icon_state = "abandoned_garden"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/service/hydroponics/garden/monastery
 	name = "Monastery Garden"
@@ -832,6 +840,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_id = "engineering"
 
 /area/engineering/engine_smes
 	name = "Engineering SMES"
@@ -1014,12 +1023,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	min_ambience_cooldown = 90 SECONDS
 	max_ambience_cooldown = 180 SECONDS
+	dept_id = "medical"
 
 /area/medical/abandoned
 	name = "Abandoned Medbay"
 	icon_state = "abandoned_medbay"
 	ambientsounds = list('sound/ambience/signal.ogg')
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/medical/medbay/central
 	name = "Medbay Central"
@@ -1134,6 +1145,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/security
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "security"
 
 /area/security/office
 	name = "Security Office"
@@ -1154,6 +1166,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/prison
 	name = "Prison Wing"
 	icon_state = "sec_prison"
+	dept_id = "prison"
 
 /area/security/prison/toilet //radproof
 	name = "Prison Toilet"
@@ -1241,6 +1254,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/checkpoint
 	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
+	dept_id = null
 
 /area/security/checkpoint/auxiliary
 	icon_state = "checkpoint_aux"
@@ -1281,6 +1295,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "armory"
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/security
+	dept_id = "security"
 
 /area/ai_monitored/security/armory/upper
 	name = "Upper Armory"
@@ -1292,6 +1307,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "quart"
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "cargo"
 
 /area/cargo/sorting
 	name = "Delivery Office"
@@ -1334,6 +1350,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "science"
 
 /area/science/breakroom
 	name = "Science Break Room"
@@ -1408,6 +1425,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Abandoned Research Lab"
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/science/nanite
 	name = "Nanite Lab"
