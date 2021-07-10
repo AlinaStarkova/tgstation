@@ -502,6 +502,8 @@
 /obj/item/organ/eyes/lizard
 	name = "lizard eyes"
 	desc = "These eyes seem to be unable to percieve color."
+	//eye_icon_state = "lizard_eyes" //I have no clue what this does, other eyes have different states but i cannot see what the state is used in, an icon somewhere? cant find it to make lizard_eyes
+	icon_state = "lizard_eyeballs"
 	var/colorblind
 
 /obj/item/organ/eyes/lizard/Insert(mob/living/carbon/eye_owner, special = FALSE)
@@ -515,8 +517,9 @@
 	return ..()
 
 /obj/item/organ/eyes/lizard/proc/colorblindness(eye_owner, colorblind)
+	var/datum/species/eyeowner = eye_owner
 	if(colorblind)
-		if(!eye_owner.tongue)
+		if(!eyeowner.tongue)
 			eye_owner.add_client_colour(/datum/client_colour/monochrome)
 		else if(eye_owner.getorgan(/obj/item/organ/tongue/lizard))
 			eye_owner.remove_client_colour(/datum/client_colour/monochrome)
