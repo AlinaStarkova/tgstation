@@ -54,6 +54,8 @@
 	REMOVE_TRAIT(tongue_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 	if(!sense_of_taste)
 		ADD_TRAIT(tongue_owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
+	if(!tongue_owner.has_quirk(/datum/quirk/monochromatic) && tongue_owner.getorgan(/obj/item/organ/eyes/lizard))
+		tongue_owner.colorblindness(tongue_owner, FALSE)
 
 /obj/item/organ/tongue/Remove(mob/living/carbon/tongue_owner, special = 0)
 	..()
@@ -64,6 +66,8 @@
 	REMOVE_TRAIT(tongue_owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
 	// Carbons by default start with NO_TONGUE_TRAIT caused TRAIT_AGEUSIA
 	ADD_TRAIT(tongue_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
+	if(!tongue_owner.has_quirk(/datum/quirk/monochromatic) && tongue_owner.getorgan(/obj/item/organ/eyes/lizard))
+		tongue_owner.colorblindness(tongue_owner, TRUE)
 
 /obj/item/organ/tongue/could_speak_language(language)
 	return is_type_in_typecache(language, languages_possible)

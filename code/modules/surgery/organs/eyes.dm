@@ -498,3 +498,28 @@
 	REMOVE_TRAIT(unadapted, TRAIT_FLASH_SENSITIVE, ORGAN_TRAIT)
 	REMOVE_TRAIT(unadapted, TRAIT_CULT_EYES, ORGAN_TRAIT)
 	return ..()
+
+/obj/item/organ/eyes/lizard
+	name = "lizard eyes"
+	desc = "These eyes seem to be unable to percieve color."
+	var/colorblind
+
+/obj/item/organ/eyes/lizard/Insert(mob/living/carbon/eye_owner, special = FALSE)
+	. = ..()
+	if(!eye_owner.has_quirk(/datum/quirk/monochromatic) && eye_owner.getorgan(/obj/item/organ/tongue/lizard))
+		colorblindness(eye_owner, TRUE)
+
+/obj/item/organ/eyes/lizard/Remove(mob/living/carbon/eye_owner, special = FALSE)
+	if(!eye_owner.has_quirk(/datum/quirk/monochromatic))
+		colorblindness(eye_owner, FALSE)
+	return ..()
+
+/obj/item/organ/eyes/lizard/proc/colorblindness(eye_owner, colorblind)
+	if(colorblind)
+		if(!eye_owner.tongue)
+			eye_owner.add_client_colour(/datum/client_colour/monochrome)
+		else if(eye_owner.getorgan(/obj/item/organ/tongue/lizard))
+			eye_owner.remove_client_colour(/datum/client_colour/monochrome)
+	else if(!colorblind)
+		eye_owner.remove_client_colour(/datum/client_colour/monochrome)
+
