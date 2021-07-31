@@ -386,6 +386,7 @@
 /area/tcommsat/oldaisat
 	name = "Abandoned Satellite"
 	icon_state = "tcomsatcham"
+	dept_id = null
 
 //ABANDONED BOX WHITESHIP
 

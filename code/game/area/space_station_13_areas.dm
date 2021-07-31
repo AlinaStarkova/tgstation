@@ -88,12 +88,15 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "AI Satellite Exterior"
 	icon_state = "ai"
 	airlock_wires = /datum/wires/airlock/ai
+	dept_id = "aiSat"
 
 /area/ai_monitored/command/storage/satellite
 	name = "AI Satellite Maint"
 	icon_state = "ai_storage"
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/ai
+	dept_id = "aiSat"
+
 
 //AI - Turret_protected
 
@@ -112,21 +115,25 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "AI Upload Chamber"
 	icon_state = "ai_upload"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = "aiUpload"
 
 /area/ai_monitored/turret_protected/ai_upload_foyer
 	name = "AI Upload Access"
 	icon_state = "ai_upload_foyer"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = "aiUpload"
 
 /area/ai_monitored/turret_protected/ai
 	name = "AI Chamber"
 	icon_state = "ai_chamber"
 	ai_will_not_hear_this = null
+	dept_id = "aiSat"
 
 /area/ai_monitored/turret_protected/aisat
 	name = "AI Satellite"
 	icon_state = "ai"
 	sound_environment = SOUND_ENVIRONMENT_ROOM
+	dept_id = "aiSat"
 
 /area/ai_monitored/turret_protected/aisat/atmos
 	name = "AI Satellite Atmos"
@@ -152,6 +159,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "AI Satellite Antechamber"
 	icon_state = "ai_interior"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_id = "aiSat"
 
 /area/ai_monitored/turret_protected/ai_sat_ext_as
 	name = "AI Sat Ext"
@@ -672,6 +680,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/service
 	airlock_wires = /datum/wires/airlock/service
+	dept_id = "service"
 
 /area/service/cafeteria
 	name = "Cafeteria"
@@ -710,13 +719,16 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/electronic_marketing_den
 	name = "Electronic Marketing Den"
 	icon_state = "abandoned_m_den"
+	dept_id = null
 
 /area/service/abandoned_gambling_den
 	name = "Abandoned Gambling Den"
 	icon_state = "abandoned_g_den"
+	dept_id = null
 
 /area/service/abandoned_gambling_den/secondary
 	icon_state = "abandoned_g_den_2"
+	dept_id = null
 
 /area/service/theater
 	name = "Theater"
@@ -726,6 +738,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/theater/abandoned
 	name = "Abandoned Theater"
 	icon_state = "abandoned_theatre"
+	dept_id = null
 
 /area/service/library
 	name = "Library"
@@ -735,31 +748,38 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	mood_trait = TRAIT_INTROVERT
 	area_flags = CULT_PERMITTED | BLOBS_ALLOWED | UNIQUE_AREA
 	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
+	dept_id = "library"
 
 /area/service/library/lounge
 	name = "Library Lounge"
 	icon_state = "library_lounge"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+	dept_id = "library"
 
 /area/service/library/artgallery
 	name = " Art Gallery"
 	icon_state = "library_gallery"
+	dept_id = "library"
 
 /area/service/library/private
 	name = "Library Private Study"
 	icon_state = "library_gallery_private"
+	dept_id = "library"
 
 /area/service/library/upper
 	name = "Library Upper Floor"
 	icon_state = "library"
+	dept_id = "library"
 
 /area/service/library/printer
 	name = "Library Printer Room"
 	icon_state = "library"
+	dept_id = "library"
 
 /area/service/library/abandoned
 	name = "Abandoned Library"
 	icon_state = "abandoned_library"
+	dept_id = null
 
 /area/service/chapel
 	icon_state = "chapel"
@@ -769,6 +789,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_HOLY
 	flags_1 = NONE
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_id = "chapel"
 
 /area/service/chapel/main
 	name = "Chapel"
@@ -784,6 +805,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Chapel Asteroid"
 	icon_state = "explored"
 	sound_environment = SOUND_AREA_ASTEROID
+	dept_id = null
 
 /area/service/chapel/asteroid/monastery
 	name = "Monastery Asteroid"
@@ -796,12 +818,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Law Office"
 	icon_state = "law"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
+	dept_id = null
 
 /area/service/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
 	area_flags = CULT_PERMITTED | BLOBS_ALLOWED | UNIQUE_AREA
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/service/hydroponics
 	name = "Hydroponics"
@@ -816,15 +840,18 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/service/hydroponics/garden
 	name = "Garden"
 	icon_state = "garden"
+	dept_id = null
 
 /area/service/hydroponics/garden/abandoned
 	name = "Abandoned Garden"
 	icon_state = "abandoned_garden"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/service/hydroponics/garden/monastery
 	name = "Monastery Garden"
 	icon_state = "hydro"
+	dept_id = "chapel"
 
 //Engineering
 
@@ -832,6 +859,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_ENGI
 	airlock_wires = /datum/wires/airlock/engineering
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_id = "engineering"
 
 /area/engineering/engine_smes
 	name = "Engineering SMES"
@@ -881,11 +909,13 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Gravity Generator Room"
 	icon_state = "grav_gen"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/engineering/storage
 	name = "Engineering Storage"
 	icon_state = "engi_storage"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/engineering/storage_shared
 	name = "Shared Engineering Storage"
@@ -894,6 +924,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/engineering/transit_tube
 	name = "Transit Tube"
 	icon_state = "transit_tube"
+	dept_id = null
 
 /area/engineering/storage/tech
 	name = "Technical Storage"
@@ -1018,12 +1049,14 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	sound_environment = SOUND_AREA_STANDARD_STATION
 	min_ambience_cooldown = 90 SECONDS
 	max_ambience_cooldown = 180 SECONDS
+	dept_id = "medical"
 
 /area/medical/abandoned
 	name = "Abandoned Medbay"
 	icon_state = "abandoned_medbay"
 	ambientsounds = list('sound/ambience/signal.ogg')
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 /area/medical/medbay/central
 	name = "Medbay Central"
@@ -1138,6 +1171,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	ambience_index = AMBIENCE_DANGER
 	airlock_wires = /datum/wires/airlock/security
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "security"
 
 /area/security/office
 	name = "Security Office"
@@ -1154,10 +1188,12 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Courtroom"
 	icon_state = "courtroom"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	dept_id = null
 
 /area/security/prison
 	name = "Prison Wing"
 	icon_state = "sec_prison"
+	dept_id = "prison"
 
 /area/security/prison/toilet //radproof
 	name = "Prison Toilet"
@@ -1222,6 +1258,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Detective's Office"
 	icon_state = "detective"
 	ambientsounds = list('sound/ambience/ambidet1.ogg','sound/ambience/ambidet2.ogg')
+	dept_id = null
 
 /area/security/detectives_office/private_investigators_office
 	name = "Private Investigator's Office"
@@ -1234,6 +1271,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 /area/security/execution
 	icon_state = "execution_room"
+	dept_id = null
 
 /area/security/execution/transfer
 	name = "Transfer Centre"
@@ -1245,6 +1283,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 /area/security/checkpoint
 	name = "Security Checkpoint"
 	icon_state = "checkpoint1"
+	dept_id = null
 
 /area/security/checkpoint/auxiliary
 	icon_state = "checkpoint_aux"
@@ -1296,6 +1335,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "quart"
 	airlock_wires = /datum/wires/airlock/service
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "supply"
 
 /area/cargo/sorting
 	name = "Delivery Office"
@@ -1338,6 +1378,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	icon_state = "science"
 	airlock_wires = /datum/wires/airlock/science
 	sound_environment = SOUND_AREA_STANDARD_STATION
+	dept_id = "science"
 
 /area/science/breakroom
 	name = "Science Break Room"
@@ -1412,6 +1453,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "Abandoned Research Lab"
 	icon_state = "abandoned_sci"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+	dept_id = null
 
 // Telecommunications Satellite
 
@@ -1420,6 +1462,7 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 											'sound/ambience/ambitech2.ogg', 'sound/ambience/ambitech3.ogg', 'sound/ambience/ambimystery.ogg')
 	airlock_wires = /datum/wires/airlock/engineering
 	network_root_id = STATION_NETWORK_ROOT // They should of unpluged the router before they left
+	dept_id = "tcomms"
 
 /area/tcommsat/computer
 	name = "Telecomms Control Room"

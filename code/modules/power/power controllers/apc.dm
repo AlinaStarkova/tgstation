@@ -160,6 +160,7 @@
 	var/update_overlay = -1
 	var/icon_update_needed = FALSE
 	var/obj/machinery/computer/apc_control/remote_control = null
+	var/isDPC = FALSE //false if src is an apc, true if its a dpc
 
 /obj/machinery/power/apc/unlocked
 	locked = FALSE
@@ -346,6 +347,9 @@
 // update the APC icon to show the three base states
 // also add overlays for indicator lights
 /obj/machinery/power/apc/update_appearance(updates=check_updates())
+	if(isDPC)
+		return ..()
+
 	icon_update_needed = FALSE
 	if(!updates)
 		return
