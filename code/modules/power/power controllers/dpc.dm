@@ -142,9 +142,9 @@
 	//todo: make this learn the department name
 	if(auto_name)
 		if(area.dept_id)
-			dept = area.dept_id
-			name = "\improper [dept] power controller"
-			get_dept_areas(dept)
+			dpcDept = area.dept_id
+			name = "\improper [dpcDept] power controller"
+			get_dept_areas(dpcDept)
 		else
 			name = "\improper [get_area_name(area, TRUE)] power controller"
 
@@ -154,11 +154,11 @@
 
 	addtimer(CALLBACK(src, .proc/update), 5)
 
-/obj/machinery/power/apc/dpc/proc/get_dept_areas(dept)
+/obj/machinery/power/apc/dpc/proc/get_dept_areas(dpcDept)
 	for(var/unassignedArea in GLOB.sortedAreas)
 		var/area/assignedArea = unassignedArea
-		if(assignedArea.dept_id == dept)
-			deptAreas.add(assignedArea)
+		if(assignedArea.dept_id == dpcDept)
+			deptAreas += assignedArea
 	if(includeAreas)
 		deptAreas += list(includeAreas)
 	if(excludeAreas)
