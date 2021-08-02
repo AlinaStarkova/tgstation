@@ -155,7 +155,7 @@
 	addtimer(CALLBACK(src, .proc/update), 5)
 
 /obj/machinery/power/apc/dpc/proc/get_dept_areas(dpcDept)
-	for(var/unassignedArea in GLOB.sortedAreas)
+	for(var/area/unassignedArea in GLOB.sortedAreas)
 		var/area/assignedArea = unassignedArea
 		if(assignedArea.dept_id == dpcDept)
 			deptAreas += assignedArea
@@ -170,7 +170,7 @@
 
 /obj/machinery/power/apc/dpc/auto_name/north //Pixel offsets get overwritten on New()
 	dir = NORTH
-	pixel_y = 23
+	pixel_y = 29
 
 /obj/machinery/power/apc/dpc/auto_name/south
 	dir = SOUTH
