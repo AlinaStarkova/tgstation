@@ -1217,6 +1217,11 @@
 /obj/structure/chair/stool/directional/east,
 /turf/open/floor/wood/parquet,
 /area/service/bar/atrium)
+"eB" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/mapping_helpers/dead_body_placer,
+/turf/open/floor/iron/dark,
+/area/medical/morgue)
 "eC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer4,
@@ -2273,7 +2278,6 @@
 /area/medical/virology)
 "iO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/mapping_helpers/dead_body_placer,
 /obj/machinery/holopad,
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
@@ -4525,12 +4529,14 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
 	},
-/obj/item/radio/intercom/directional/south,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/disposaloutlet{
 	desc = "An outlet for the pneumatic disposal system. This one seems designed for rapid corpse disposal.";
 	dir = 1;
 	name = "rapid corpse mover 9000"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
 	},
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
@@ -7039,6 +7045,9 @@
 /obj/effect/turf_decal/caution/stand_clear{
 	dir = 8
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
 "Da" = (
@@ -7138,6 +7147,10 @@
 	},
 /obj/effect/turf_decal/trimline/neutral/filled/corner,
 /obj/effect/decal/cleanable/blood/old,
+/obj/effect/mapping_helpers/dead_body_placer,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
 "Dt" = (
@@ -9487,7 +9500,6 @@
 /area/science/xenobiology)
 "Nk" = (
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mapping_helpers/dead_body_placer,
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
 "Nm" = (
@@ -10626,7 +10638,7 @@
 /area/hallway/secondary/service)
 "Rz" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch/directional/south,
+/obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark,
 /area/medical/morgue)
 "RB" = (
@@ -51792,7 +51804,7 @@ ak
 ak
 Jj
 mt
-pl
+eB
 Nk
 QK
 We
