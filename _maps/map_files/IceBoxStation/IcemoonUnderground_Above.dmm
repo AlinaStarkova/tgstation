@@ -378,6 +378,7 @@
 /obj/effect/turf_decal/trimline/green/filled/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "bw" = (
@@ -489,6 +490,7 @@
 /area/maintenance/department/medical)
 "bS" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "bT" = (
@@ -759,6 +761,11 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 6
 	},
+/obj/machinery/duct,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = 12
+	},
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "cM" = (
@@ -918,6 +925,7 @@
 /obj/effect/turf_decal/trimline/green/filled/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "dA" = (
@@ -1539,6 +1547,7 @@
 /obj/effect/turf_decal/trimline/green/filled/warning{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/medical/virology)
 "fF" = (
@@ -1610,6 +1619,7 @@
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "gh" = (
@@ -1995,6 +2005,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/turf_decal/trimline/green/filled/warning,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "hL" = (
@@ -2114,6 +2125,7 @@
 	dir = 8
 	},
 /obj/machinery/firealarm/directional/west,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "ij" = (
@@ -2373,6 +2385,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "ji" = (
@@ -2768,6 +2781,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "kX" = (
@@ -2914,6 +2928,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/medical/virology)
 "lt" = (
@@ -2970,6 +2985,7 @@
 	c_tag = "Virology Airlock";
 	network = list("ss13","medbay")
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "lw" = (
@@ -3683,6 +3699,11 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
+/obj/machinery/duct,
+/turf/open/floor/iron/white,
+/area/medical/virology)
+"oQ" = (
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "oR" = (
@@ -3834,6 +3855,7 @@
 /area/medical/morgue)
 "pm" = (
 /obj/machinery/holopad,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "pq" = (
@@ -3989,6 +4011,7 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "pO" = (
@@ -4627,6 +4650,10 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 9
 	},
+/obj/structure/sink{
+	pixel_y = 20
+	},
+/obj/machinery/duct,
 /turf/open/floor/iron/dark,
 /area/medical/virology)
 "sr" = (
@@ -4867,6 +4894,7 @@
 "tp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/plating,
 /area/medical/virology)
 "tq" = (
@@ -5560,6 +5588,7 @@
 "ws" = (
 /obj/structure/extinguisher_cabinet/directional/west,
 /obj/machinery/light/small/directional/north,
+/obj/machinery/space_heater,
 /turf/open/floor/plating,
 /area/medical/virology)
 "wu" = (
@@ -5659,6 +5688,7 @@
 /obj/structure/railing/corner{
 	dir = 4
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "wL" = (
@@ -6724,6 +6754,7 @@
 	pixel_x = -12;
 	pixel_y = 2
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "BQ" = (
@@ -6845,6 +6876,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "Cp" = (
@@ -6905,6 +6937,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/duct,
 /turf/open/floor/plating,
 /area/medical/virology)
 "CC" = (
@@ -7309,6 +7342,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "Eq" = (
@@ -7487,6 +7521,7 @@
 /obj/effect/turf_decal/trimline/green/filled/corner{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "Fc" = (
@@ -8853,6 +8888,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "KL" = (
@@ -9038,6 +9074,7 @@
 /obj/effect/turf_decal/trimline/green/filled/line{
 	dir = 1
 	},
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "LC" = (
@@ -10216,6 +10253,7 @@
 /area/mine/eva)
 "PY" = (
 /obj/machinery/airalarm/directional/south,
+/obj/structure/reagent_dispensers/watertank,
 /turf/open/floor/plating,
 /area/medical/virology)
 "PZ" = (
@@ -10499,6 +10537,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/holopad,
+/obj/machinery/duct,
 /turf/open/floor/iron/white,
 /area/medical/virology)
 "Rg" = (
@@ -53047,7 +53086,7 @@ Wy
 bV
 bV
 JO
-dh
+oQ
 dh
 GI
 Wy
@@ -53304,7 +53343,7 @@ lw
 Wy
 kU
 Fb
-dh
+oQ
 bS
 hK
 ls
