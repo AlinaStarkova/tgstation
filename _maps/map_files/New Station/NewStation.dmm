@@ -104,14 +104,13 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/foyer)
 "aqp" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "art" = (
 /obj/machinery/computer/telecomms/monitor,
@@ -362,11 +361,10 @@
 /turf/open/openspace,
 /area/station/ai/satellite/hallway)
 "bai" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "baV" = (
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -408,9 +406,8 @@
 /turf/closed/wall,
 /area/station/hallway/primary/central/aft)
 "bcT" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/airalarm/directional/east,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "bep" = (
 /obj/machinery/turretid{
@@ -1065,10 +1062,9 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/ai/satellite/chamber)
 "dnd" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "dod" = (
 /obj/machinery/computer/shuttle/mining{
@@ -1101,12 +1097,11 @@
 /turf/open/floor/plating,
 /area/station/maintenance/central)
 "dtp" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "dtU" = (
 /obj/structure/table/wood,
@@ -1670,18 +1665,16 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/hop)
 "fiD" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/structure/railing/corner{
 	dir = 8
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "fiO" = (
-/obj/structure/lattice/catwalk,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "flb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2261,11 +2254,10 @@
 /turf/open/openspace,
 /area/station/ai/satellite/hallway)
 "hHu" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "hIK" = (
 /obj/effect/turf_decal/siding/purple/corner{
@@ -2512,12 +2504,11 @@
 /turf/open/floor/iron/grimy,
 /area/station/tcommsat/computer)
 "iuv" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 1
 	},
 /obj/structure/railing/corner,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "iwz" = (
 /obj/machinery/shower/directional/south,
@@ -2750,14 +2741,13 @@
 /turf/open/floor/carpet/red,
 /area/station/command/heads_quarters/captain/private)
 "jcc" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/corner{
 	dir = 8
 	},
 /obj/structure/railing/corner{
 	dir = 1
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "jdz" = (
 /obj/structure/cable,
@@ -3093,14 +3083,13 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/interior)
 "kly" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "kmb" = (
 /obj/machinery/vending/cart{
@@ -3242,12 +3231,11 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/foyer)
 "lcs" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 8
 	},
 /obj/structure/railing/corner,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "lea" = (
 /obj/structure/railing{
@@ -3287,14 +3275,13 @@
 /turf/open/floor/plating,
 /area/station/ai/satellite/exterior)
 "ljt" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/structure/railing{
 	dir = 8
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "lkj" = (
 /obj/machinery/teleport/station,
@@ -3330,9 +3317,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/ai/satellite/chamber)
 "lpv" = (
-/obj/structure/lattice/catwalk,
 /obj/machinery/light/directional/east,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "lpy" = (
 /obj/effect/turf_decal/trimline/dark_blue/filled/line{
@@ -3499,9 +3485,8 @@
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/captain/private)
 "mfW" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "mhQ" = (
 /obj/structure/cable,
@@ -3747,13 +3732,12 @@
 /turf/open/floor/engine/hull/reinforced,
 /area/space/nearstation)
 "mVw" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "mYR" = (
 /obj/structure/stairs/west,
@@ -3904,7 +3888,6 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/satellite/foyer)
 "nSp" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 8
 	},
@@ -3914,7 +3897,7 @@
 	pixel_x = -6;
 	pixel_y = -28
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "nSC" = (
 /obj/structure/stairs/south,
@@ -4089,12 +4072,11 @@
 /turf/open/floor/iron/dark,
 /area/station/ai/upload/chamber)
 "oud" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing,
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "owG" = (
 /obj/machinery/computer/teleporter{
@@ -4618,12 +4600,11 @@
 /turf/open/floor/plating,
 /area/station/ai/satellite/exterior)
 "qFS" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/corner{
 	dir = 4
 	},
 /obj/structure/railing/corner,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "qKs" = (
 /turf/open/floor/plating,
@@ -4676,7 +4657,6 @@
 /turf/open/misc/asteroid/airless,
 /area/space/nearstation)
 "qTS" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -4686,7 +4666,7 @@
 /obj/machinery/computer/security/telescreen/research/directional/south{
 	pixel_y = -24
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "qUr" = (
 /obj/machinery/computer/station_alert{
@@ -5553,6 +5533,14 @@
 	},
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/hop)
+"unq" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/catwalk_floor/iron_dark,
+/area/station/ai/satellite/hallway)
 "uns" = (
 /obj/docking_port/stationary/public_mining_dock{
 	dir = 2
@@ -5613,12 +5601,11 @@
 /turf/open/openspace,
 /area/space/nearstation)
 "uDa" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
 /obj/machinery/light_switch/directional/south,
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "uJL" = (
 /obj/effect/turf_decal/trimline/yellow/filled/line{
@@ -5857,7 +5844,6 @@
 /turf/open/floor/iron/dark,
 /area/station/command/bridge)
 "vRW" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 8
 	},
@@ -5871,7 +5857,7 @@
 	dir = 4;
 	pixel_y = -24
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "vUI" = (
 /obj/effect/turf_decal/siding/purple{
@@ -5894,11 +5880,10 @@
 /turf/open/floor/iron/dark,
 /area/station/command/vault)
 "vYo" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing{
 	dir = 4
 	},
-/turf/open/openspace,
+/turf/open/floor/catwalk_floor/iron_dark,
 /area/station/ai/satellite/hallway)
 "vYs" = (
 /obj/effect/turf_decal/trimline/blue/filled/corner,
@@ -169783,7 +169768,7 @@ dEV
 dEV
 jEg
 dEV
-oud
+unq
 dEV
 jEg
 jEg
